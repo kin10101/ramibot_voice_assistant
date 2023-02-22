@@ -1,0 +1,197 @@
+{
+  "intents": [
+    {
+      "tag": "hello",
+      "patterns": [
+        "hi",
+        "hello",
+        "hi romy",
+        "hello rami"
+      ],
+      "responses": [
+        "Hello!",
+        "Greetings!",
+        "Hello there! how may I help?"
+      ]
+    },
+    {
+      "tag": "bye",
+      "patterns": [
+        "goodbye",
+        "bye"
+      ],
+      "responses": [
+        "Goodbye!",
+        "See you later!",
+        "Have a great day!",
+        "Farewell!"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "weather like today",
+        "rain today",
+        "do I need an umbrella"
+      ],
+      "responses": [
+        "I'm not sure, you could check a weather forecast to find out.",
+        "It looks like it might rain today, bring an umbrella just in case.",
+        "It's always a good idea to have an umbrella with you, just in case!"
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": ["how can you help me", "what can you do", "capabilities", "capable of"],
+      "responses": ["I am here to assist you with any questions or tasks you may have. Just let me know how I can help."]
+    },
+    {
+      "tag": "how are you",
+      "patterns": ["how are you", "whats up"],
+      "responses": ["Im fine, thank you for asking"]
+    },
+    {
+      "tag": "gossip",
+      "patterns": ["do you have someone you love", "are you interested in anyone"],
+      "responses": ["I would like to keep it a secret", "not telling","the temperature checker in the entrance is really cute, but im too afraid to approach it"]
+    },
+    {
+      "tag": "hobby",
+      "patterns": ["do you have any hobbies", "what do you like to do in your free time", "what are your hobbies"],
+      "responses": ["I like watching people pass by", "in my free time, I usually look at the funny faces stored in my database"]
+    },
+    {
+      "tag": "swearwords",
+      "patterns": ["tang ina","tangina", "fuck you", "stupid", "bitch", "gago", "shit", "puta", "pota", "ina mo"],
+      "responses": ["please refrain from saying such words"]
+    },
+    {
+      "tag": "hotdog",
+      "patterns": ["hotdog", "hot dog"],
+      "responses": ["hotdog"]
+    },
+    {
+      "tag": "who are you",
+      "patterns": ["who are you", "sino ka", "name", "about yourself"],
+      "responses": ["I am rammy bot", "i am apc's exclusive robot assistant, rammy bot" ]
+    },
+    {
+      "tag": "capabilities",
+      "patterns": ["what can you do", "what are you capable of doing"],
+      "responses": ["i am currently capable of answering questions that i am trained for", "at the moment, i can't do much because I am still in development" ]
+    },
+    {
+      "tag": "cafeteria",
+      "patterns": ["eat", "drink","food", "water","refill"],
+      "responses": ["you can go to the cafeteria in the first floor"]
+    },
+   {
+      "tag": "registrar",
+      "patterns": ["enroll", "register"],
+      "responses": ["you can go to the registrar in the fourth floor"]
+    },
+
+    {
+      "tag": "lobby floor location",
+      "patterns": ["cafeteria", "floor admissions office","floor chapel", "floor mph1", "mph one"],
+      "responses": ["it is located here at the 1st floor"]
+    },
+    {
+      "tag": "second floor location",
+      "patterns": [
+        "floor 201,", "floor 202,", "floor 203,", "floor 204,", "floor 205,", "floor 206,", "floor 207,", "floor 208,", "floor 209,"
+      ],
+      "responses": ["it is located at the 2nd floor"]
+    },
+    {
+      "tag": "third floor location",
+      "patterns": ["floor 301", "floor 302", "floor 303", "floor 304", "floor 305", "floor 306", "floor 307", "floor 308", "floor 309"],
+      "responses": ["it is located at the 3rd floor"]
+    },
+    {
+      "tag": "fourth floor location",
+      "patterns": ["floor 401", "floor 402", "floor 403", "floor 404", "floor 405", "floor 406", "floor 407", "floor 408", "floor 409"],
+      "responses": ["it is located at the 4th floor"]
+    },
+    {
+      "tag": "fifth floor location",
+      "patterns": ["floor 501", "floor 502", "floor 503", "floor 504", "floor 505", "floor 506", "floor 507", "floor 508", "floor 509"],
+      "responses": ["it is located at the 5th floor"]
+    },
+     {
+      "tag": "sixth floor location",
+      "patterns": ["floor 601", "floor 602", "floor 603", "floor 604", "floor 605", "floor 606", "floor 607", "floor 608", "floor 609"],
+      "responses": ["it is located at the 6th floor"]
+    },
+     {
+      "tag": "seventh floor location",
+      "patterns": ["floor 701", "floor 702", "floor 703", "floor 704", "floor 705", "floor 706", "floor 707", "floor 708", "floor 709"],
+      "responses": ["it is located at the 7th floor"]
+    },
+    {
+      "tag": "eighth floor location",
+      "patterns": ["floor 801", "floor 802", "floor 803", "floor 804","floor 805","floor 806","floor 807", "floor 808","floor 809","floor eslo"],
+      "responses": ["it is located at the 8th floor"]
+    },
+     {
+      "tag": "ninth floor location",
+      "patterns": ["floor 901", "floor 902", "floor 903", "floor 904", "floor 905", "floor 906", "floor 907", "floor 908", "floor 909"],
+      "responses": ["it is located at the 9th floor"]
+    },
+    {
+      "tag": "tenth floor location",
+      "patterns": ["floor gym", "floor jim", "floor shower room", "floor bmo", "floor guidance office"],
+      "responses": ["it is located at the 10th floor" ]
+    },
+    {
+      "tag": "eleventh floor location",
+      "patterns": ["floor court", "floor gymnasium"],
+      "responses": ["it is located on the 11th floor"]
+    },
+    {
+      "tag": "twelfth floor location",
+      "patterns": ["auditorium"],
+      "responses": ["it is located on the 12th floor"]
+    },
+
+
+    {
+      "tag": "workout",
+      "patterns": ["gym", "workout"],
+      "responses": ["you can go to the gym at the 10th floor" ]
+    },
+    {
+      "tag": "programs offered",
+      "patterns": ["programs","courses","school", "enroll"],
+      "responses": ["here are some information regarding your question", "please refer to my information panel" ]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [""],
+      "responses": [
+        "sorry, i don't understand. Could you please repeat that again?",
+        "I am currently unsure on what to say.",
+        "i currently dont know the appropriate response for that statement"
+      ]
+    },
+
+
+    {
+      "tag": "sing",
+      "patterns": ["sing a song"],
+      "responses": [" "]
+    },
+    {
+      "tag": "test_func",
+      "patterns": ["do function"],
+      "responses": [" "]
+    },
+    {
+      "tag": "current_time",
+      "patterns": ["time is it now", "tell time", "anong oras na","current time"],
+      "responses": [" "]
+    }
+
+
+  ]
+}
