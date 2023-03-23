@@ -28,19 +28,6 @@
       ]
     },
     {
-      "tag": "weather",
-      "patterns": [
-        "weather like today",
-        "rain today",
-        "do I need an umbrella"
-      ],
-      "responses": [
-        "I'm not sure, you could check a weather forecast to find out.",
-        "It looks like it might rain today, bring an umbrella just in case.",
-        "It's always a good idea to have an umbrella with you, just in case!"
-      ]
-    },
-    {
       "tag": "help",
       "patterns": ["how can you help me", "what can you do", "capabilities", "capable of"],
       "responses": ["I am here to assist you with any questions or tasks you may have. Just let me know how I can help."]
@@ -73,12 +60,15 @@
     {
       "tag": "who are you",
       "patterns": ["who are you", "sino ka", "name", "about yourself"],
-      "responses": ["I am rammy bot", "i am apc's exclusive robot assistant, rammy bot" ]
+      "responses": ["I am rami bot", "i am apc's exclusive robot assistant, rammy bot" ]
     },
     {
       "tag": "capabilities",
       "patterns": ["what can you do", "what are you capable of doing"],
-      "responses": ["i am currently capable of answering questions that i am trained for", "at the moment, i can't do much because I am still in development" ]
+      "responses": [
+	  "i am currently capable of answering questions that i am trained for", 
+	  "at the moment, i can't do much because I am still in development" 
+	  ]
     },
     {
       "tag": "cafeteria",
@@ -90,62 +80,122 @@
       "patterns": ["enroll", "register"],
       "responses": ["you can go to the registrar in the fourth floor"]
     },
-
     {
       "tag": "lobby floor location",
-      "patterns": ["cafeteria", "floor admissions office","floor chapel", "floor mph1", "mph one"],
+      "patterns": [
+        "cafeteria", "floor admissions office", "clinic",
+        "chapel", "floor mph1", "mph one", "mph1", "MPH1"
+      ],
       "responses": ["it is located here at the 1st floor"]
     },
     {
       "tag": "second floor location",
       "patterns": [
-        "floor 201,", "floor 202,", "floor 203,", "floor 204,", "floor 205,", "floor 206,", "floor 207,", "floor 208,", "floor 209,"
+        "floor room 201", "floor room 202", "floor room 203",
+		"floor room 204", "floor room 205", "floor room 206",
+        "floor room 207", "floor room 208", "floor room 209",
+		"floor room 213", "floor room 214", "floor room 215",
+		"floor room 216", "floor room 217", "floor room 218"
       ],
       "responses": ["it is located at the 2nd floor"]
     },
     {
       "tag": "third floor location",
-      "patterns": ["floor 301", "floor 302", "floor 303", "floor 304", "floor 305", "floor 306", "floor 307", "floor 308", "floor 309"],
+      "patterns": [
+        "floor room 301", "floor room 302", "floor room 303",
+        "floor room 304", "floor room 305", "floor room 306",
+        "floor room 307", "floor room 308", "floor room 309", 
+		"floor room 313", "floor room 314", "floor room 315", 
+		"floor room 316", "floor room 317", "floor room 318"
+      ],
       "responses": ["it is located at the 3rd floor"]
     },
     {
       "tag": "fourth floor location",
-      "patterns": ["floor 401", "floor 402", "floor 403", "floor 404", "floor 405", "floor 406", "floor 407", "floor 408", "floor 409"],
+      "patterns": [
+        "floor room 401", "floor room 402", "floor room 403", 
+		"floor room 409", "floor room 414", "floor room 415", 
+		"floor room 416", "floor room 417", "floor room 418", 
+		"part time room", "registrar", "faculty", "board room"
+      ],
       "responses": ["it is located at the 4th floor"]
     },
     {
       "tag": "fifth floor location",
-      "patterns": ["floor 501", "floor 502", "floor 503", "floor 504", "floor 505", "floor 506", "floor 507", "floor 508", "floor 509"],
+      "patterns": [
+        "floor room 501", "itro", "i t r o", "floor room 502",
+        "floor room 504", "floor room 505", "floor room 506",
+        "floor room 508", "floor room 513", "floor room 514",  
+		"floor room 515", "floor room 517", "foley recording studio",
+		"music recording studio", "video and photography studio", 
+		"apc center", "a p c center" , "documentation office", 
+		"hr office", "human resource office", "h r office",
+		"consulting office", "consultation office"
+      ],
       "responses": ["it is located at the 5th floor"]
     },
      {
       "tag": "sixth floor location",
-      "patterns": ["floor 601", "floor 602", "floor 603", "floor 604", "floor 605", "floor 606", "floor 607", "floor 608", "floor 609"],
+      "patterns": [
+        "floor room 601", "floor room 602", "floor room 603",
+        "floor room 604", "floor room 605", "floor room 606",
+        "floor room 607", "floor room 608", "floor room 609",
+		"floor room 614", "floor room 615", "floor room 616", 
+		"floor room 617", "floor room 618"
+      ],
       "responses": ["it is located at the 6th floor"]
     },
      {
       "tag": "seventh floor location",
-      "patterns": ["floor 701", "floor 702", "floor 703", "floor 704", "floor 705", "floor 706", "floor 707", "floor 708", "floor 709"],
+      "patterns": [
+        "discussion room", "meeting room", "shs faculty", "senior high school faculty", 
+		"library", "library office", "technical library", "avr", "mrc"
+      ],
       "responses": ["it is located at the 7th floor"]
     },
     {
-      "tag": "eighth floor location",
-      "patterns": ["floor 801", "floor 802", "floor 803", "floor 804","floor 805","floor 806","floor 807", "floor 808","floor 809","floor eslo"],
+      "tag": "eighth floor location unfinished",
+      "patterns": [
+        "floor room 801","digital electronics laboratory","digital electronics lab", "systems design laboratory",
+		
+		"floor room 802", "floor room 803",
+        "floor room 804","floor room 805","floor room 806",
+        "floor room 807", "floor room 808","floor room 809",
+		"floor room 811", "floor room 813", "floor room 814",
+		"floor room 815", "floor room 816", "floor room 817", 
+		"floor room 818", "floor eslo", "floor oslo"
+      ],
       "responses": ["it is located at the 8th floor"]
     },
      {
       "tag": "ninth floor location",
-      "patterns": ["floor 901", "floor 902", "floor 903", "floor 904", "floor 905", "floor 906", "floor 907", "floor 908", "floor 909"],
+      "patterns": [
+        "floor room 901", "floor room 902", "floor room 903",
+        "floor room 904", "floor room 905", "floor room 906",
+        "floor room 907", "floor room 908", "floor room 909",
+		"dormitory","dorm room"
+      ],
       "responses": ["it is located at the 9th floor"]
     },
     {
       "tag": "tenth floor location",
-      "patterns": ["floor gym", "floor jim", "floor shower room", "floor bmo", "floor guidance office"],
+      "patterns": [
+        "floor room 1004", "floor gym", "floor jim", "floor gymnasium","floor room 1007", "floor shower room", "floor room 1008", "logistics office",
+        "floor room 1011", "floor bmo", "kitchen", 
+		"discipline office","disciplinary office",
+		"floor room 1013", "floor room 1014", "floor room 1015",
+		"floor room 1016", "floor room 1017", "floor room 1018"		
+		],
       "responses": ["it is located at the 10th floor" ]
     },
     {
       "tag": "eleventh floor location",
-      "patterns": ["floor court", "floor gymnasium"],
+      "patterns": [
+	  "floor room 1109", "floor court", "basketball court", "floor room 1110", 
+	  "floor room 1111", "floor room 1114", "floor room 1115", 
+	  "floor room 1116", "floor room 1117", "floor room 1118",
+	  "chem lab", "chemistry lab", "floor guidance office" 
+	  ],
       "responses": ["it is located on the 11th floor"]
     },
     {
@@ -153,12 +203,10 @@
       "patterns": ["auditorium"],
       "responses": ["it is located on the 12th floor"]
     },
-
-
     {
-      "tag": "workout",
-      "patterns": ["gym", "workout"],
-      "responses": ["you can go to the gym at the 10th floor" ]
+      "tag": "gym_keywords",
+      "patterns": ["gym", "workout", "exercise", "dance"],
+      "responses": ["you can go to the gym at the 10th floor"]
     },
     {
       "tag": "programs offered",
@@ -188,10 +236,8 @@
     },
     {
       "tag": "current_time",
-      "patterns": ["time is it now", "tell time", "anong oras na","current time"],
+      "patterns": ["time is it now", "tell time", "oras na","current time"],
       "responses": [" "]
     }
-
-
   ]
 }

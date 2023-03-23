@@ -1,3 +1,27 @@
+import sys
+import time
+
+import speech_recognition as sr
+from openpyxl import Workbook
+from openpyxl.styles import Font
+
+import chatbot
+import texttospeech as ts
+from playaudio import louder_sound
+from playaudio import play
+
+
+WAKE_WORD = 'hello rami'
+WAKE_WORD_VARIATIONS = [
+    "hello ram",
+    "hello mommy",
+    "hello romy",
+    "hello run",
+    "hello robi",
+    "hello ron",
+    "hiram",
+    "hey ram"
+]
 
 def run_assistant():
     while True:
@@ -46,3 +70,5 @@ def run_assistant():
             ts.speak('bye')
             ts.engine.stop()
             sys.exit()
+
+run_assistant()

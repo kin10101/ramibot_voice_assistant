@@ -1,16 +1,15 @@
 import sys
-
-import speech_recognition as sr
-import texttospeech as ts
-import chatbot
 import time
-from playaudio import play
-from playaudio import louder_sound
 
-import openpyxl
+import testing_area
+import speech_recognition as sr
 from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font
+
+import chatbot
+import texttospeech as ts
+from playaudio import louder_sound
+from playaudio import play
 
 WAKE_WORD = 'hello rami'
 WAKE_WORD_VARIATIONS = [
@@ -20,10 +19,9 @@ WAKE_WORD_VARIATIONS = [
     "hello run",
     "hello robi",
     "hello ron",
-    "hiram"
+    "hiram",
+    "hey rami"
 ]
-
-timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
 
 
 def handle_command(text):
@@ -47,6 +45,8 @@ def get_wake_word():
         audio = r.listen(source)
         text = r.recognize_google(audio)
         return text.lower()
+
+
 
 
 def test_assistant():
@@ -73,18 +73,23 @@ def test_assistant():
     row = 2  # start writing data from row 2
 
     while True:
+        timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         try:
             print('speak now')
 
             # record audio from microphone
             with sr.Microphone() as source:
+                print("1")
                 start_time = time.monotonic()
                 r = sr.Recognizer()
                 r.pause_threshold = 0.8
                 r.energy_threshold = 10000
+                r.operation_timeout = 5000
                 r.dynamic_energy_threshold = True
+                print("set")
 
                 audio = r.listen(source)
+                print("listening now")
 
                 # transcribe audio input
                 text = r.recognize_google(audio)
@@ -123,6 +128,7 @@ def test_assistant():
                         print("tag triggered: " + ints[0]['intent'])
                         ws.cell(row=row, column=5, value=ints[0]['intent'])
                     except:
+
                         pass
 
                     response_time = end_time - detect_time
