@@ -1,8 +1,8 @@
 import playaudio
-
 import texttospeech as tts
 import datetime
 from datetime import datetime
+
 
 def sing():
     print("singing")
@@ -18,17 +18,21 @@ def get_time():
     now = datetime.now()
     current_time = now.strftime("%I:%M %p")
     tts.speak("it is currently " + current_time)
+    print("")
 
 
 def get_date():
-    today = datetime.date.today()
-    current_day = today.strftime("%B %d")
-    tts.speak("it is currently " + current_day)
+    now = datetime.now()
+    current_day = now.strftime("%A %B %d")
+    day_of_week = now.strftime("%A")
+    tts.speak("Today is " + current_day)
 
 
 # convert to a json file afterwards
+
 command_mappings = {
     "test_func": test_func,
     "sing": sing,
-    "current_time": get_time
+    "current_time": get_time,
+    "current_date": get_date
 }

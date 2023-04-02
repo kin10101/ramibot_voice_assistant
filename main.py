@@ -1,7 +1,6 @@
 import sys
 import time
 
-import testing_area
 import speech_recognition as sr
 from openpyxl import Workbook
 from openpyxl.styles import Font
@@ -143,8 +142,6 @@ def test_assistant():
 
                     row += 1  # increment the row number for the next data entry
                     wb.save('chatbotdata.xlsx')
-
-
 
         except sr.RequestError:
             print("Could not request results from Google Speech Recognition service")

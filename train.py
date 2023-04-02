@@ -6,7 +6,7 @@ import numpy as np
 import texttospeech as tts
 
 import nltk
-from nltk.stem import WordNetLemmatizer  # It has the ability to lemmatize.
+from nltk.stem import WordNetLemmatizer
 
 import tensorflow as tensorF  # A multidimensional array of elements is represented by this symbol.
 from keras import Sequential  # Sequential groups a linear stack of layers into a tf.keras.Model
