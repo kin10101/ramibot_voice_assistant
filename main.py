@@ -26,7 +26,7 @@ WAKE_WORD_VARIATIONS = [
 def handle_command(text):
     try:
         if text is not None:
-            response = chatbot.request(text)
+            response = chatbot.handle_request(text)
             if response is not None:
                 return response
     except:

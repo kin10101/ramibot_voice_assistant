@@ -95,7 +95,7 @@ def get_response(intents_list, intents_json, context):
     return result
 
 
-def request(message, context):
+def handle_request(message, context):
     """Determine whether the predicted intent corresponds to a custom command function
     or a standard response and return the appropriate output."""
     predicted_intents = predict_class(message)
@@ -130,7 +130,7 @@ def test_chatbot():
             message = input("")  # get input
             predict = predict_class(message)
             # response = get_response(predict, intents)  # get response from get_response()
-            response = request(message, context)  # get response from request()
+            response = handle_request(message, context)  # get response from request()
 
             if response:
                 tts.speak(response)  # Text to speech function
