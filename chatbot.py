@@ -14,7 +14,9 @@ import texttospeech as tts
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl', 'rb'))
+print(words) #------------
 classes = pickle.load(open('classes.pkl', 'rb'))
+print(classes)
 model = load_model('chatbot_model.h5')
 
 # Get dict command mappings
@@ -47,7 +49,7 @@ def bag_of_words(sentence):
     return np.array(bag)
 
 
-context = {}  # hold user context
+#context = {}  # hold user context
 
 
 def predict_class(sentence):
@@ -67,13 +69,23 @@ def predict_class(sentence):
     return return_list
 
 
-def get_response(intents_list, intents_json):
+def get_response(intents_list, intents_json, context):
     """Get a response based on the predicted intent."""
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     result = None
     for i in list_of_intents:
+        print(i)
         if i['tag'] == tag:
+
+            if 'context_filter' in i and i['context_filter'] not in context:
+                result = "blocked by context filters"
+                continue
+            if 'context_set' in i:  # set context
+                context[0] = i['context_set']
+            if 'function' in i:
+                print("FOUND FUNCTION! DO SOMETHING")
+
             result = random.choice(i['responses'])
             # Gets a random response from the given list
             break
@@ -83,19 +95,20 @@ def get_response(intents_list, intents_json):
     return result
 
 
-def request(message):
+def request(message, context):
     """Determine whether the predicted intent corresponds to a custom command function
     or a standard response and return the appropriate output."""
     predicted_intents = predict_class(message)
+    check_response = get_response(predicted_intents, intents, context)
 
     if not predicted_intents:
         response = "sorry, I am not yet capable of responding to that"
 
-    elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
-        intent_methods[predicted_intents[0]['intent']]()
+    #elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
+     #   intent_methods[predicted_intents[0]['intent']]()
 
     else:
-        response = get_response(predicted_intents, intents)
+        response = check_response
 
     # ---------------------------------------------------------------------------
     print("get request output", response)
@@ -103,14 +116,21 @@ def request(message):
     return response
 
 
+def get_tag(message):
+    tag = predict_class(message)
+    return tag
+
+
 def test_chatbot():
+    context = [""]
     while True:
+        print(context)
 
         try:
             message = input("")  # get input
-            ints = predict_class(message)
-            # response = get_response(ints, intents)  # get response from get_response()
-            response = request(message)  # get response from request()
+            predict = predict_class(message)
+            # response = get_response(predict, intents)  # get response from get_response()
+            response = request(message, context)  # get response from request()
 
             if response:
                 tts.speak(response)  # Text to speech function
