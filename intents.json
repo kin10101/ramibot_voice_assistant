@@ -13,6 +13,7 @@
         "Greetings!",
         "Hello there! how may I help?"
       ]
+
     },
     {
       "tag": "bye",
@@ -25,12 +26,18 @@
         "See you later!",
         "Have a great day!",
         "Farewell!"
-      ]
-    },
+      ],
+        "context_set": ""
+     },
     {
       "tag": "help",
       "patterns": ["how can you help me", "what can you do", "capabilities", "capable of"],
       "responses": ["I am here to assist you with any questions or tasks you may have. Just let me know how I can help."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you"],
+      "responses": ["You're welcome", "No problem", "My pleasure"]
     },
     {
       "tag": "how are you",
@@ -60,8 +67,9 @@
     {
       "tag": "who are you",
       "patterns": ["who are you", "sino ka", "name", "about yourself"],
-      "responses": ["I am rami bot", "i am apc's exclusive robot assistant, rammy bot" ]
+      "responses": ["I am rami bot", "i am apc's exclusive robot assistant, rammy bot"]
     },
+
     {
       "tag": "capabilities",
       "patterns": ["what can you do", "what are you capable of doing"],
@@ -79,6 +87,12 @@
       "tag": "registrar",
       "patterns": ["enroll", "register"],
       "responses": ["you can go to the registrar in the fourth floor"]
+    },
+     {
+      "tag": "location_help",
+      "patterns": ["can you help me locate a room", "find room"],
+      "responses": ["what room do you want me to search for"],
+      "context_set": ["find_room"]
     },
     {
       "tag": "lobby floor location",
@@ -145,8 +159,8 @@
         "floor room 601", "floor room 602", "floor room 603",
         "floor room 604", "floor room 605", "floor room 606",
         "floor room 607", "floor room 608", "floor room 609",
-		    "floor room 614", "floor room 615", "floor room 616", 
-		    "floor room 617", "floor room 618"
+        "floor room 614", "floor room 615", "floor room 616",
+		"floor room 617", "floor room 618"
       ],
       "responses": ["it is located at the 6th floor"],
       "context_filter": ["find_room"]
@@ -225,13 +239,68 @@
       "tag": "programs offered",
       "patterns": ["programs","courses","school", "enroll"],
       "responses": ["here are some information regarding your question", "please refer to my information panel" ],
-      "context_set": [""]
+      "context_set": ""
     },
     {
-      "tag": "location_help",
-      "patterns": ["can you help me locate a room", "find room"],
-      "responses": ["what room do you want me to search for"],
-      "context_set": ["find_room"]
+      "tag": "apc programs",
+      "patterns": ["what programs does apc offer", "other programs"],
+      "responses": ["asia pacific college offers many programs under different schools, which school are you interested in?",
+        "we have different programs under the school of engineering, architecture, computing and IT, management, multimedia arts, and other departments. which one are you interested in?" ],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "soe",
+      "patterns": ["engineering", "soe", "school of engineering"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "socit",
+      "patterns": ["it", "socit", "school of computing and information technology"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "soar",
+      "patterns": ["architecture", "soar", "school of architecture and design"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "som",
+      "patterns": ["management", "som", "school of management"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "soma",
+      "patterns": ["multimedia arts", "soma", "school of multimedia arts"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "shs",
+      "patterns": ["senior high school", "shs", "high school"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "grad",
+      "patterns": ["graduate school", "grad", "graduate"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+    {
+      "tag": "professional tracks",
+      "patterns": ["professional tracks", "professional", "tracks"],
+      "responses": [""],
+      "context_set": "apc_programs"
+    },
+
+    {
+      "tag": "unknown",
+        "patterns": [" "],
+        "responses": ["sorry, i don't understand", "i don't know what you mean", "i don't understand"]
     },
 
 
