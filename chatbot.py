@@ -22,7 +22,11 @@ model = load_model('chatbot_model.h5')
 # Get dict command mappings
 intent_methods = command_functions.command_mappings
 
+#get data from database and return it
+def get_from_database():
+    """Get data from database."""
 
+    pass
 def clean_up_sentence(sentence):
     """Tokenize and lemmatize the sentence."""
     sentence_words = nltk.word_tokenize(sentence)
@@ -49,9 +53,6 @@ def bag_of_words(sentence):
     return np.array(bag)
 
 
-#context = {}  # hold user context
-
-
 def predict_class(sentence):
     """Predict the intent of the sentence."""
     bow = bag_of_words(sentence)
@@ -61,7 +62,7 @@ def predict_class(sentence):
     results.sort(key=lambda x: x[1], reverse=True)  # sort by strength of probability
     return_list = []
     for r in results:
-        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])}) # remove strings
+        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})  # remove strings
 
     # ---------------------------------------------------------------------------
     print("predict_class output", return_list)
@@ -83,11 +84,11 @@ def get_response(intents_list, intents_json, context):
                 continue
             if 'context_set' in i:  # set context
                 context[0] = i['context_set']
+
             if 'function' in i:
                 print("FOUND FUNCTION! DO SOMETHING")
 
-            result = random.choice(i['responses'])
-            # Gets a random response from the given list
+            result = random.choice(i['responses'])  # Gets a random response from the given list
             break
     # ---------------------------------------------------------------------------
     print("get response output", result)
@@ -104,8 +105,8 @@ def handle_request(message, context):
     if not predicted_intents:
         response = "sorry, I am not yet capable of responding to that"
 
-    #elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
-     #   intent_methods[predicted_intents[0]['intent']]()
+    elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
+        intent_methods[predicted_intents[0]['intent']]()
 
     else:
         response = check_response
@@ -122,13 +123,14 @@ def get_tag(message):
 
 
 def test_chatbot():
+    """Test chatbot by using the command line."""
     context = [""]
     while True:
         print(context)
 
         try:
             message = input("")  # get input
-            predict = predict_class(message)
+            # predict = predict_class(message)
             # response = get_response(predict, intents)  # get response from get_response()
             response = handle_request(message, context)  # get response from request()
 

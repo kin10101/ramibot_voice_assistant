@@ -23,10 +23,10 @@ WAKE_WORD_VARIATIONS = [
 ]
 
 
-def handle_command(text):
+def handle_command(text, context): # has bugs
     try:
         if text is not None:
-            response = chatbot.handle_request(text)
+            response = chatbot.handle_request(text, context)
             if response is not None:
                 return response
     except:
@@ -113,8 +113,9 @@ def test_assistant():
                     print("Recieved command: " + text)
                     ws.cell(row=row, column=3, value=text)  # excel data input text
 
+                    context = []
                     # generate a response from the chatbot
-                    response = handle_command(text)
+                    response = handle_command(text, context)
                     if response:
                         ts.speak(response)
                     ws.cell(row=row, column=4, value=response)  # excel data output text
