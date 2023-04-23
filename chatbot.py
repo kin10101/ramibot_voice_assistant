@@ -88,6 +88,10 @@ def get_response(intents_list, intents_json, context):
             if 'function' in i:
                 print("FOUND FUNCTION! DO SOMETHING")
 
+            if not i:
+                result = "sorry, I am not yet capable of responding to that"
+                continue
+
             result = random.choice(i['responses'])  # Gets a random response from the given list
             break
     # ---------------------------------------------------------------------------
@@ -106,7 +110,8 @@ def handle_request(message, context):
         response = "sorry, I am not yet capable of responding to that"
 
     elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
-        intent_methods[predicted_intents[0]['intent']]()
+        intent_methods[predicted_intents[0]['intent']]()  # call the function
+        response = "command executed"
 
     else:
         response = check_response
