@@ -1,332 +1,714 @@
 {
-  "intents": [
-    {
-      "tag": "hello",
-      "patterns": [
-        "hi",
-        "hello",
-        "hi romy",
-        "hello rami"
-      ],
-      "responses": [
-        "Hello!",
-        "Greetings!",
-        "Hello there! how may I help?"
-      ]
-
-    },
-    {
-      "tag": "bye",
-      "patterns": [
-        "goodbye",
-        "bye"
-      ],
-      "responses": [
-        "Goodbye!",
-        "See you later!",
-        "Have a great day!",
-        "Farewell!"
-      ],
-        "context_set": ""
-     },
-    {
-      "tag": "help",
-      "patterns": ["how can you help me", "what can you do", "capabilities", "capable of"],
-      "responses": ["I am here to assist you with any questions or tasks you may have. Just let me know how I can help."]
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["thanks", "thank you"],
-      "responses": ["You're welcome", "No problem", "My pleasure"]
-    },
-    {
-      "tag": "how are you",
-      "patterns": ["how are you", "whats up"],
-      "responses": ["Im fine, thank you for asking"]
-    },
-    {
-      "tag": "gossip",
-      "patterns": ["do you have someone you love", "are you interested in anyone"],
-      "responses": ["I would like to keep it a secret", "not telling","the temperature checker in the entrance is really cute, but im too afraid to approach it"]
-    },
-    {
-      "tag": "hobby",
-      "patterns": ["do you have any hobbies", "what do you like to do in your free time", "what are your hobbies"],
-      "responses": ["I like watching people pass by", "in my free time, I usually look at the funny faces stored in my database"]
-    },
-    {
-      "tag": "swearwords",
-      "patterns": ["tang ina","tangina", "fuck you", "stupid", "bitch", "gago", "shit", "puta", "pota", "ina mo"],
-      "responses": ["please refrain from saying such words"]
-    },
-    {
-      "tag": "hotdog",
-      "patterns": ["hotdog", "hot dog"],
-      "responses": ["hotdog"]
-    },
-    {
-      "tag": "who are you",
-      "patterns": ["who are you", "sino ka", "name", "about yourself"],
-      "responses": ["I am rami bot", "i am apc's exclusive robot assistant, rammy bot"]
-    },
-
-    {
-      "tag": "capabilities",
-      "patterns": ["what can you do", "what are you capable of doing"],
-      "responses": [
-	  "i am currently capable of answering questions that i am trained for", 
-	  "at the moment, i can't do much because I am still in development" 
-	  ]
-    },
-    {
-      "tag": "cafeteria",
-      "patterns": ["eat", "drink","food", "water","refill"],
-      "responses": ["you can go to the cafeteria in the first floor"]
-    },
-   {
-      "tag": "registrar",
-      "patterns": ["enroll", "register"],
-      "responses": ["you can go to the registrar in the fourth floor"]
-    },
-     {
-      "tag": "location_help",
-      "patterns": ["can you help me locate a room", "find room"],
-      "responses": ["what room do you want me to search for"],
-      "context_set": ["find_room"]
-    },
-    {
-      "tag": "lobby floor location",
-      "patterns": [
-        "cafeteria", "floor admissions office", "clinic",
-        "chapel", "floor mph1", "mph one", "mph1", "MPH1"
-      ],
-      "responses": ["it is located here at the 1st floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "second floor location",
-      "patterns": [
-        "floor room 201", "floor room 202", "floor room 203",
-		    "floor room 204", "floor room 205", "floor room 206",
-        "floor room 207", "floor room 208", "floor room 209",
-		    "floor room 213", "floor room 214", "floor room 215",
-		    "floor room 216", "floor room 217", "floor room 218"
-      ],
-      "responses": ["it is located at the 2nd floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "third floor location",
-      "patterns": [
-        "floor room 301", "floor room 302", "floor room 303",
-        "floor room 304", "floor room 305", "floor room 306",
-        "floor room 307", "floor room 308", "floor room 309", 
-		"floor room 313", "floor room 314", "floor room 315", 
-		"floor room 316", "floor room 317", "floor room 318"
-      ],
-      "responses": ["it is located at the 3rd floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "fourth floor location",
-      "patterns": [
-        "floor room 401", "floor room 402", "floor room 403", 
-		"floor room 409", "floor room 414", "floor room 415", 
-		"floor room 416", "floor room 417", "floor room 418", 
-		"part time room", "registrar", "faculty", "board room"
-      ],
-      "responses": ["it is located at the 4th floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "fifth floor location",
-      "patterns": [
-        "floor room 501", "itro", "i t r o", "floor room 502",
-        "floor room 504", "floor room 505", "floor room 506",
-        "floor room 508", "floor room 513", "floor room 514",  
-		    "floor room 515", "floor room 517", "foley recording studio",
-		    "music recording studio", "video and photography studio", 
-		    "apc center", "a p c center" , "documentation office", 
-		    "hr office", "human resource office", "h r office",
-		    "consulting office", "consultation office"
-      ],
-      "responses": ["it is located at the 5th floor"],
-      "context_filter": ["find_room"]
-    },
-     {
-      "tag": "sixth floor location",
-      "patterns": [
-        "floor room 601", "floor room 602", "floor room 603",
-        "floor room 604", "floor room 605", "floor room 606",
-        "floor room 607", "floor room 608", "floor room 609",
-        "floor room 614", "floor room 615", "floor room 616",
-		"floor room 617", "floor room 618"
-      ],
-      "responses": ["it is located at the 6th floor"],
-      "context_filter": ["find_room"]
-    },
-     {
-      "tag": "seventh floor location",
-      "patterns": [
-        "discussion room", "meeting room", "shs faculty", "senior high school faculty", 
-		    "library", "library office", "technical library", "avr", "mrc"
-      ],
-      "responses": ["it is located at the 7th floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "eighth floor location unfinished",
-      "patterns": [
-        "floor room 801","digital electronics laboratory",
-        "digital electronics lab", "systems design laboratory",
-		    "floor room 802", "floor room 803",
-        "floor room 804","floor room 805","floor room 806",
-        "floor room 807", "floor room 808","floor room 809",
-		    "floor room 811", "floor room 813", "floor room 814",
-		    "floor room 815", "floor room 816", "floor room 817", 
-		    "floor room 818", "floor eslo", "floor oslo"
-      ],
-      "responses": ["it is located at the 8th floor"],
-      "context_filter": ["find_room"]
-    },
-     {
-      "tag": "ninth floor location",
-      "patterns": [
-        "floor room 901", "floor room 902", "floor room 903",
-        "floor room 904", "floor room 905", "floor room 906",
-        "floor room 907", "floor room 908", "floor room 909",
-		    "dormitory","dorm room"
-      ],
-      "responses": ["it is located at the 9th floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "tenth floor location",
-      "patterns": [
-        "floor room 1004", "floor gym", "floor jim", "floor gymnasium",
-        "floor room 1007", "floor shower room", "floor room 1008", "logistics office",
-        "floor room 1011", "floor bmo", "kitchen", 
-		    "discipline office","disciplinary office",
-		    "floor room 1013", "floor room 1014", "floor room 1015",
-		    "floor room 1016", "floor room 1017", "floor room 1018"		
-		],
-      "responses": ["it is located at the 10th floor" ],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "eleventh floor location",
-      "patterns": [
-	  "floor room 1109", "floor court", "basketball court", "floor room 1110", 
-	  "floor room 1111", "floor room 1114", "floor room 1115", 
-	  "floor room 1116", "floor room 1117", "floor room 1118",
-	  "chem lab", "chemistry lab", "floor guidance office" 
-	  ],
-      "responses": ["it is located on the 11th floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "twelfth floor location",
-      "patterns": ["auditorium"],
-      "responses": ["it is located on the 12th floor"],
-      "context_filter": ["find_room"]
-    },
-    {
-      "tag": "gym_keywords",
-      "patterns": ["gym", "workout", "exercise", "dance"],
-      "responses": ["you can go to the gym at the 10th floor"]
-    },
-    {
-      "tag": "programs offered",
-      "patterns": ["programs","courses","school", "enroll"],
-      "responses": ["here are some information regarding your question", "please refer to my information panel" ],
-      "context_set": ""
-    },
-    {
-      "tag": "apc programs",
-      "patterns": ["what programs does apc offer", "other programs"],
-      "responses": ["asia pacific college offers many programs under different schools, which school are you interested in?",
-        "we have different programs under the school of engineering, architecture, computing and IT, management, multimedia arts, and other departments. which one are you interested in?" ],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "soe",
-      "patterns": ["engineering", "soe", "school of engineering"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "socit",
-      "patterns": ["it", "socit", "school of computing and information technology"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "soar",
-      "patterns": ["architecture", "soar", "school of architecture and design"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "som",
-      "patterns": ["management", "som", "school of management"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "soma",
-      "patterns": ["multimedia arts", "soma", "school of multimedia arts"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "shs",
-      "patterns": ["senior high school", "shs", "high school"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "grad",
-      "patterns": ["graduate school", "grad", "graduate"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-    {
-      "tag": "professional tracks",
-      "patterns": ["professional tracks", "professional", "tracks"],
-      "responses": [""],
-      "context_set": "apc_programs"
-    },
-
-    {
-      "tag": "unknown",
-        "patterns": [" "],
-        "responses": ["sorry, i don't understand", "i don't know what you mean", "i don't understand"]
-    },
-
-
-    {
-      "tag": "sing",
-      "patterns": ["sing a song"],
-      "responses": [" "],
-      "function": ["sing"]
-    },
-    {
-      "tag": "test_func",
-      "patterns": ["command 1"],
-      "responses": [" "],
-      "function": ["test_func"]
-    },
-    {
-      "tag": "current_time",
-      "patterns": ["time is it now", "tell time", "oras na","current time"],
-      "responses": [" "],
-      "function": ["current_time"]
-    },
-    {
-      "tag": "current_date",
-      "patterns": ["date is it now", "tell day", "araw na","current date"],
-      "responses": [" "],
-      "function": ["current_date"]
-    }
-  ]
+    "intents": [
+        {
+            "tag": "hello",
+            "patterns": [
+                "hi",
+                "hello",
+                "hi romy",
+                "hello rami"
+            ],
+            "responses": [
+                "Hello!",
+                "Greetings!",
+                "Hello there! how may I help?"
+            ]
+        },
+        {
+            "tag": "bye",
+            "patterns": [
+                "goodbye",
+                "bye"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you later!",
+                "Have a great day!",
+                "Farewell!"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "help",
+            "patterns": [
+                "how can you help me",
+                "what can you do",
+                "capabilities",
+                "capable of"
+            ],
+            "responses": [
+                "I am here to assist you with any questions or tasks you may have. Just let me know how I can help."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "thanks",
+                "thank you"
+            ],
+            "responses": [
+                "You're welcome",
+                "No problem",
+                "My pleasure"
+            ]
+        },
+        {
+            "tag": "how are you",
+            "patterns": [
+                "how are you",
+                "whats up"
+            ],
+            "responses": [
+                "Im fine, thank you for asking"
+            ]
+        },
+        {
+            "tag": "gossip",
+            "patterns": [
+                "do you have someone you love",
+                "are you interested in anyone"
+            ],
+            "responses": [
+                "I would like to keep it a secret",
+                "not telling",
+                "the temperature checker in the entrance is really cute, but im too afraid to approach it"
+            ]
+        },
+        {
+            "tag": "hobby",
+            "patterns": [
+                "do you have any hobbies",
+                "what do you like to do in your free time",
+                "what are your hobbies"
+            ],
+            "responses": [
+                "I like watching people pass by",
+                "in my free time, I usually look at the funny faces stored in my database"
+            ]
+        },
+        {
+            "tag": "swearwords",
+            "patterns": [
+                "tang ina",
+                "tangina",
+                "fuck you",
+                "stupid",
+                "bitch",
+                "gago",
+                "shit",
+                "puta",
+                "pota",
+                "ina mo"
+            ],
+            "responses": [
+                "please refrain from saying such words"
+            ]
+        },
+        {
+            "tag": "hotdog",
+            "patterns": [
+                "hotdog",
+                "hot dog"
+            ],
+            "responses": [
+                "hotdog"
+            ]
+        },
+        {
+            "tag": "who are you",
+            "patterns": [
+                "who are you",
+                "sino ka",
+                "name",
+                "about yourself"
+            ],
+            "responses": [
+                "I am rami bot",
+                "i am apc's exclusive robot assistant, rammy bot"
+            ]
+        },
+        {
+            "tag": "capabilities",
+            "patterns": [
+                "what can you do",
+                "what are you capable of doing"
+            ],
+            "responses": [
+                "i am currently capable of answering questions that i am trained for",
+                "at the moment, i can't do much because I am still in development"
+            ]
+        },
+        {
+            "tag": "cafeteria",
+            "patterns": [
+                "eat",
+                "drink",
+                "food",
+                "water",
+                "refill"
+            ],
+            "responses": [
+                "you can go to the cafeteria in the first floor"
+            ]
+        },
+        {
+            "tag": "registrar",
+            "patterns": [
+                "enroll",
+                "register"
+            ],
+            "responses": [
+                "you can go to the registrar in the fourth floor"
+            ]
+        },
+        {
+            "tag": "location_help",
+            "patterns": [
+                "can you help me locate a room",
+                "find room"
+            ],
+            "responses": [
+                "what room do you want me to search for"
+            ],
+            "context_set": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "lobby floor location",
+            "patterns": [
+                "cafeteria",
+                "floor admissions office",
+                "clinic",
+                "chapel",
+                "floor mph1",
+                "mph one",
+                "mph1",
+                "MPH1"
+            ],
+            "responses": [
+                "it is located here at the 1st floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "second floor location",
+            "patterns": [
+                "floor room 201",
+                "floor room 202",
+                "floor room 203",
+                "floor room 204",
+                "floor room 205",
+                "floor room 206",
+                "floor room 207",
+                "floor room 208",
+                "floor room 209",
+                "floor room 213",
+                "floor room 214",
+                "floor room 215",
+                "floor room 216",
+                "floor room 217",
+                "floor room 218"
+            ],
+            "responses": [
+                "it is located at the 2nd floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "third floor location",
+            "patterns": [
+                "floor room 301",
+                "floor room 302",
+                "floor room 303",
+                "floor room 304",
+                "floor room 305",
+                "floor room 306",
+                "floor room 307",
+                "floor room 308",
+                "floor room 309",
+                "floor room 313",
+                "floor room 314",
+                "floor room 315",
+                "floor room 316",
+                "floor room 317",
+                "floor room 318"
+            ],
+            "responses": [
+                "it is located at the 3rd floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "fourth floor location",
+            "patterns": [
+                "floor room 401",
+                "floor room 402",
+                "floor room 403",
+                "floor room 409",
+                "floor room 414",
+                "floor room 415",
+                "floor room 416",
+                "floor room 417",
+                "floor room 418",
+                "part time room",
+                "registrar",
+                "faculty",
+                "board room"
+            ],
+            "responses": [
+                "it is located at the 4th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "fifth floor location",
+            "patterns": [
+                "floor room 501",
+                "itro",
+                "i t r o",
+                "floor room 502",
+                "floor room 504",
+                "floor room 505",
+                "floor room 506",
+                "floor room 508",
+                "floor room 513",
+                "floor room 514",
+                "floor room 515",
+                "floor room 517",
+                "foley recording studio",
+                "music recording studio",
+                "video and photography studio",
+                "apc center",
+                "a p c center",
+                "documentation office",
+                "hr office",
+                "human resource office",
+                "h r office",
+                "consulting office",
+                "consultation office"
+            ],
+            "responses": [
+                "it is located at the 5th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "sixth floor location",
+            "patterns": [
+                "floor room 601",
+                "floor room 602",
+                "floor room 603",
+                "floor room 604",
+                "floor room 605",
+                "floor room 606",
+                "floor room 607",
+                "floor room 608",
+                "floor room 609",
+                "floor room 614",
+                "floor room 615",
+                "floor room 616",
+                "floor room 617",
+                "floor room 618"
+            ],
+            "responses": [
+                "it is located at the 6th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "seventh floor location",
+            "patterns": [
+                "discussion room",
+                "meeting room",
+                "shs faculty",
+                "senior high school faculty",
+                "library",
+                "library office",
+                "technical library",
+                "avr",
+                "mrc"
+            ],
+            "responses": [
+                "it is located at the 7th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "eighth floor location unfinished",
+            "patterns": [
+                "floor room 801",
+                "digital electronics laboratory",
+                "digital electronics lab",
+                "systems design laboratory",
+                "floor room 802",
+                "floor room 803",
+                "floor room 804",
+                "floor room 805",
+                "floor room 806",
+                "floor room 807",
+                "floor room 808",
+                "floor room 809",
+                "floor room 811",
+                "floor room 813",
+                "floor room 814",
+                "floor room 815",
+                "floor room 816",
+                "floor room 817",
+                "floor room 818",
+                "floor eslo",
+                "floor oslo"
+            ],
+            "responses": [
+                "it is located at the 8th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "ninth floor location",
+            "patterns": [
+                "floor room 901",
+                "floor room 902",
+                "floor room 903",
+                "floor room 904",
+                "floor room 905",
+                "floor room 906",
+                "floor room 907",
+                "floor room 908",
+                "floor room 909",
+                "dormitory",
+                "dorm room"
+            ],
+            "responses": [
+                "it is located at the 9th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "tenth floor location",
+            "patterns": [
+                "floor room 1004",
+                "floor gym",
+                "floor jim",
+                "floor gymnasium",
+                "floor room 1007",
+                "floor shower room",
+                "floor room 1008",
+                "logistics office",
+                "floor room 1011",
+                "floor bmo",
+                "kitchen",
+                "discipline office",
+                "disciplinary office",
+                "floor room 1013",
+                "floor room 1014",
+                "floor room 1015",
+                "floor room 1016",
+                "floor room 1017",
+                "floor room 1018"
+            ],
+            "responses": [
+                "it is located at the 10th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "eleventh floor location",
+            "patterns": [
+                "floor room 1109",
+                "floor court",
+                "basketball court",
+                "floor room 1110",
+                "floor room 1111",
+                "floor room 1114",
+                "floor room 1115",
+                "floor room 1116",
+                "floor room 1117",
+                "floor room 1118",
+                "chem lab",
+                "chemistry lab",
+                "floor guidance office"
+            ],
+            "responses": [
+                "it is located on the 11th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "twelfth floor location",
+            "patterns": [
+                "auditorium"
+            ],
+            "responses": [
+                "it is located on the 12th floor"
+            ],
+            "context_filter": [
+                "find_room"
+            ]
+        },
+        {
+            "tag": "gym_keywords",
+            "patterns": [
+                "gym",
+                "workout",
+                "exercise",
+                "dance"
+            ],
+            "responses": [
+                "you can go to the gym at the 10th floor"
+            ]
+        },
+        {
+            "tag": "programs offered",
+            "patterns": [
+                "programs",
+                "courses",
+                "school",
+                "enroll"
+            ],
+            "responses": [
+                "here are some information regarding your question",
+                "please refer to my information panel"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "apc programs",
+            "patterns": [
+                "what programs does apc offer",
+                "other programs"
+            ],
+            "responses": [
+                "asia pacific college offers many programs under different schools, which school are you interested in?",
+                "we have different programs under the school of engineering, architecture, computing and IT, management, multimedia arts, and other departments. which one are you interested in?"
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "soe",
+            "patterns": [
+                "engineering",
+                "soe",
+                "school of engineering"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "socit",
+            "patterns": [
+                "it",
+                "socit",
+                "school of computing and information technology"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "soar",
+            "patterns": [
+                "architecture",
+                "soar",
+                "school of architecture and design"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "som",
+            "patterns": [
+                "management",
+                "som",
+                "school of management"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "soma",
+            "patterns": [
+                "multimedia arts",
+                "soma",
+                "school of multimedia arts"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "shs",
+            "patterns": [
+                "senior high school",
+                "shs",
+                "high school"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "grad",
+            "patterns": [
+                "graduate school",
+                "grad",
+                "graduate"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "professional tracks",
+            "patterns": [
+                "professional tracks",
+                "professional",
+                "tracks"
+            ],
+            "responses": [
+                ""
+            ],
+            "context_set": "apc_programs"
+        },
+        {
+            "tag": "unknown",
+            "patterns": [
+                ""
+            ],
+            "responses": [
+                "sorry, i don't understand",
+                "i don't know what you mean",
+                "i don't understand"
+            ]
+        },
+        {
+            "tag": "sing",
+            "patterns": [
+                "sing a song"
+            ],
+            "responses": [
+                " "
+            ],
+            "function": [
+                "sing"
+            ]
+        },
+        {
+            "tag": "test_func",
+            "patterns": [
+                "command 1"
+            ],
+            "responses": [
+                " "
+            ],
+            "function": [
+                "test_func"
+            ]
+        },
+        {
+            "tag": "current_time",
+            "patterns": [
+                "time is it now",
+                "tell time",
+                "oras na",
+                "current time"
+            ],
+            "responses": [
+                " "
+            ],
+            "function": [
+                "current_time"
+            ]
+        },
+        {
+            "tag": "current_date",
+            "patterns": [
+                "date is it now",
+                "tell day",
+                "araw na",
+                "current date"
+            ],
+            "responses": [
+                " "
+            ],
+            "function": [
+                "current_date"
+            ]
+        },
+        {
+            "tag": "add_intents",
+            "patterns": [
+                "i want to add intents",
+                "add intents",
+                "let me teach you new words",
+                "i want to teach you new words"
+            ],
+            "responses": [
+                "please input the intent_tag, followed by the words you want to add, and the response you want to give"
+            ],
+            "function": [
+                "add_intents"
+            ]
+        },
+        {
+            "tag": "update",
+            "patterns": [
+                "train yourself",
+                "retrain",
+                "update",
+                "update yourself",
+                "restart training",
+                "restart"
+            ],
+            "responses": [
+                "updating myself, please wait"
+            ],
+            "function": [
+                "update"
+            ]
+        },
+        {
+            "tag": "good morning",
+            "patterns": [
+                "good morning rami",
+                " good day rami",
+                " good morning"
+            ],
+            "responses": [
+                "good morning"
+            ]
+        }
+    ]
 }
