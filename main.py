@@ -19,7 +19,8 @@ WAKE_WORD_VARIATIONS = [
     "hello robi",
     "hello ron",
     "hiram",
-    "hey rami"
+    "hey rami",
+    "rami"
 ]
 
 
@@ -31,7 +32,7 @@ def handle_command(text, context): # has bugs
                 return response
     except:
         print("unknown word")
-        ts.speak("i currently dont know how to respond to that")
+        # ts.speak("i currently don't know how to respond to that")
         pass
 
 
@@ -41,6 +42,7 @@ def get_wake_word():
         r.pause_threshold = 0.8
         r.energy_threshold = 10000
         r.dynamic_energy_threshold = True
+        #r.adjust_for_ambient_noise(source, duration=0.5)
         audio = r.listen(source)
         text = r.recognize_google(audio)
         return text.lower()
