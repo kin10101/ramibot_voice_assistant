@@ -14,7 +14,7 @@ import texttospeech as tts
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl', 'rb'))
-print(words) #------------
+print(words)  # ------------
 classes = pickle.load(open('classes.pkl', 'rb'))
 print(classes)
 model = load_model('chatbot_model.h5')
@@ -22,11 +22,14 @@ model = load_model('chatbot_model.h5')
 # Get dict command mappings
 intent_methods = command_functions.command_mappings
 
-#get data from database and return it
+
+# get data from database and return it
 def get_from_database():
     """Get data from database."""
 
     pass
+
+
 def clean_up_sentence(sentence):
     """Tokenize and lemmatize the sentence."""
     sentence_words = nltk.word_tokenize(sentence)
