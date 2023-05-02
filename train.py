@@ -1,36 +1,33 @@
 import json
 import pickle
-import string
 import random
-import numpy as np
-import texttospeech as tts
 
+import matplotlib.pyplot as plt
 import nltk
+import numpy as np
+from keras import Sequential
+from keras.layers import Dense, Dropout
+from keras.optimizers import SGD
 from nltk.stem import WordNetLemmatizer
 
-import tensorflow as tensorF  # A multidimensional array of elements is represented by this symbol.
-from keras import Sequential  # Sequential groups a linear stack of layers into a tf.keras.Model
-from keras.layers import Dense, Activation, Dropout
-from keras.optimizers import SGD
+nltk.download("punkt")
+nltk.download("wordnet")
 
-nltk.download("punkt")  # required package for tokenization
-nltk.download("wordnet")  # word database
-def trainBot():
-    lemmatizer = WordNetLemmatizer()  # for getting words
+
+def train_bot():
+    lemmatizer = WordNetLemmatizer()
 
     intents = json.loads(open('intents.json').read())
 
-    # lists
     words = []
     classes = []
     documents = []
     ignore_letters = ['!', '?', '.', ',']
 
-    # Each intent is tokenized into words and the patterns and their associated tags are added to their respective lists.
     for intent in intents["intents"]:
         for pattern in intent["patterns"]:
-            word_list = nltk.word_tokenize(pattern)  # tokenize the patterns
-            words.extend(word_list)  # extends the tokens
+            word_list = nltk.word_tokenize(pattern)
+            words.extend(word_list)
             documents.append((word_list, intent['tag']))
             if intent['tag'] not in classes:
                 classes.append(intent['tag'])
@@ -42,7 +39,6 @@ def trainBot():
 
     pickle.dump(words, open('words.pkl', 'wb'))
     pickle.dump(classes, open('classes.pkl', 'wb'))
-    # print(words) #see lemmatized data
 
     training = []
     output_empty = [0] * len(classes)
@@ -64,7 +60,6 @@ def trainBot():
     train_x = list(training[:, 0])
     train_y = list(training[:, 1])
 
-    # initialize training model
     model = Sequential()
     model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
     model.add(Dropout(0.5))
@@ -79,7 +74,24 @@ def trainBot():
     model.save('chatbot_model.h5', hist)
 
     print('done training')
-    tts.speak('training is complete.')
+
+    # call the plot_history function to plot accuracy and loss
+    plot_history(hist)
 
 
-# trainBot()
+def plot_history(history):
+    # plot training accuracy
+    plt.plot(history.history['accuracy'])
+    plt.title('Model Accuracy')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Train'], loc='upper left')
+    plt.show()
+
+    # plot training loss
+    plt.plot(history.history['loss'])
+    plt.title('Model Loss')
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch')
+    plt.legend(['Train'], loc='upper left')
+    plt.show()
