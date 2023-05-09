@@ -10,8 +10,10 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 from nltk.stem import WordNetLemmatizer
 
-nltk.download("punkt")
-nltk.download("wordnet")
+"""uncomment for first install"""
+# nltk.download("punkt")
+# nltk.download("wordnet")
+# nltk.download("stopwords")
 
 
 def train_bot():
@@ -23,6 +25,7 @@ def train_bot():
     classes = []
     documents = []
     ignore_letters = ['!', '?', '.', ',']
+    stop_words = nltk.corpus.stopwords.words('english')
 
     for intent in intents["intents"]:
         for pattern in intent["patterns"]:
@@ -32,7 +35,7 @@ def train_bot():
             if intent['tag'] not in classes:
                 classes.append(intent['tag'])
 
-    words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
+    words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters and word not in stop_words]
     words = sorted(set(words))
 
     classes = sorted(set(classes))
@@ -80,7 +83,7 @@ def train_bot():
 
 
 def plot_history(history):
-    # plot training accuracy
+    """plot training accuracy"""
     plt.plot(history.history['accuracy'])
     plt.title('Model Accuracy')
     plt.ylabel('Accuracy')
