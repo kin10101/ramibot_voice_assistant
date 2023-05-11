@@ -1,9 +1,11 @@
+import chatbot
 import playaudio
 import texttospeech as tts
 import datetime
 from datetime import datetime
 import addintent
 import train
+
 
 def sing():
     print("singing")
@@ -33,14 +35,28 @@ def add_intents():
     # add new intents to the intents.json file
     addintent.add_intent()
 
-    pass
 
 def train_bot():
+    running = bool
     # train the bot with the new intents
-    train.trainBot()
-    pass
+    train.train_bot()
+    print("please restart for the changes to take effect")
+    return running is False
+
 
 # convert to a json file afterwards
+def restart():
+    chatbot.test_chatbot()
+
+
+def display_intents():
+    addintent.display_json("intents.json")
+
+
+def edit_intent():
+    intent_tag = input("Enter the tag of the intent you want to edit: ")
+    new_responses = input("Enter new responses for the intent (separated by commas): ").split(',')
+    addintent.edit_intent("intents.json", intent_tag, new_responses)
 
 
 command_mappings = {
@@ -49,5 +65,7 @@ command_mappings = {
     "current_time": get_time,
     "current_date": get_date,
     "add_intents": add_intents,
-    "update": train_bot
+    "update": train_bot,
+    "restart": restart,
+    "display_intents": display_intents
 }

@@ -23,13 +23,6 @@ model = load_model('chatbot_model.h5')
 intent_methods = command_functions.command_mappings
 
 
-# get data from database and return it
-def get_from_database():
-    """Get data from database."""
-
-    pass
-
-
 def clean_up_sentence(sentence):
     """Tokenize and lemmatize the sentence."""
     sentence_words = nltk.word_tokenize(sentence)
@@ -50,9 +43,8 @@ def bag_of_words(sentence):
             if word == w:
                 bag[i] = 1
 
-    # ---------------------------------------------------------------------------
     print("bag of words output", np.array(bag))
-    # --------------------------------------------------------------------------
+
     return np.array(bag)
 
 
@@ -83,7 +75,6 @@ def get_response(intents_list, intents_json, context):
         if i['tag'] == tag:
 
             if 'context_filter' in i and i['context_filter'] not in context:
-                result = "blocked by context filters"
                 continue
             if 'context_set' in i:  # set context
                 context[0] = i['context_set']
@@ -132,8 +123,10 @@ def get_tag(message):
 
 def test_chatbot():
     """Test chatbot by using the command line."""
+    print("testing cb")
     context = [""]
-    while True:
+    running = True
+    while running:
         print(context)
 
         try:
@@ -146,6 +139,11 @@ def test_chatbot():
                 tts.speak(response)  # Text to speech function
                 print(response)  # output response in terminal
 
+            if response == "restart1":
+                break
+
+
         except Exception as e:
             response = e
             pass
+    print("out of loop")
