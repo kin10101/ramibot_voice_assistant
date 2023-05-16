@@ -1,0 +1,26 @@
+:kivy 2.0.0
+
+BoxLayout:
+    orientation: 'vertical'
+    TextInput:
+        id: tag_input
+        hint_text: 'Enter intent tag to search'
+    Button:
+        text: 'Search'
+        on_press: app.search(tag_input.text)
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.8
+        ListView:
+            id: intent_list
+            adapter:
+                ListAdapter(data=[], cls=ListItemButton)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.8
+            TextInput:
+                id: response_input
+                hint_text: 'Enter response here'
+            Button:
+                text: 'Save'
+                on_press: app.save(response_input.text)
