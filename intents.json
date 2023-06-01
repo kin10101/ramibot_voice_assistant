@@ -638,10 +638,12 @@
     {
       "tag": "current_date",
       "patterns": [
+        "what day is it today",
         "date is it now",
         "tell day",
         "araw na",
-        "current date"
+        "current date",
+        "can you tell me what day it is today"
       ],
       "responses": [
         " "
@@ -727,6 +729,30 @@
       ],
       "responses": [
         "APC stands for Asia Pacific College."
+      ]
+    },
+     {
+      "tag": "APC vision",
+      "patterns": [
+        "What is the vision of APC?",
+        "tell me about the vision of APC",
+        "state APC vision statement",
+        "what is the vision statement of APC"
+      ],
+      "responses": [
+        "Asia Pacific College envisions itself to be the preferred Higher Education Institution bridging academe and industry with its programs founded on the concepts and applications of IT, guided by the core values of integrity, industry and innovation that works."
+      ]
+    },
+    {
+      "tag": "APC vision",
+      "patterns": [
+        "What is the vision of APC?",
+        "tell me about the vision of APC",
+        "state APC vision statement",
+        "what is the vision statement of APC"
+      ],
+      "responses": [
+        "Asia Pacific College envisions itself to be the preferred Higher Education Institution bridging academe and industry with its programs founded on the concepts and applications of IT, guided by the core values of integrity, industry and innovation that works."
       ]
     },
     {
