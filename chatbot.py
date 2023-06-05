@@ -43,8 +43,6 @@ def bag_of_words(sentence):
             if word == w:
                 bag[i] = 1
 
-    print("bag of words output", np.array(bag))
-
     return np.array(bag)
 
 

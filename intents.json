@@ -1,7 +1,14 @@
 {
   "intents": [
+     {
+      "tag": "FB Unknown",
+      "patterns": [],
+      "responses": [
+        "no voice detected", "sorry i cant understand you", "please repeat", "i cant hear you", "please speak louder"
+      ]
+    },
     {
-      "tag": "hello",
+      "tag": "GEN hello",
       "patterns": [
         "hi",
         "hello",
@@ -15,7 +22,7 @@
       ]
     },
     {
-      "tag": "good morning",
+      "tag": "GEN good morning",
       "patterns": [
         "good morning rami",
         " good day rami",
@@ -26,7 +33,7 @@
       ]
     },
     {
-      "tag": "bye",
+      "tag": "GEN bye",
       "patterns": [
         "goodbye",
         "bye"
@@ -40,7 +47,7 @@
       "context_set": ""
     },
     {
-      "tag": "help",
+      "tag": "GEN help",
       "patterns": [
         "how can you help me",
         "what can you do",
@@ -52,7 +59,7 @@
       ]
     },
     {
-      "tag": "thanks",
+      "tag": "GEN thanks",
       "patterns": [
         "thanks",
         "thank you"
@@ -64,7 +71,7 @@
       ]
     },
     {
-      "tag": "how are you",
+      "tag": "GEN how are you",
       "patterns": [
         "how are you",
         "whats up"
@@ -74,7 +81,7 @@
       ]
     },
     {
-      "tag": "gossip",
+      "tag": "GEN gossip",
       "patterns": [
         "do you have someone you love",
         "are you interested in anyone"
@@ -86,7 +93,7 @@
       ]
     },
     {
-      "tag": "hobby",
+      "tag": "GEN Hobby",
       "patterns": [
         "do you have any hobbies",
         "what do you like to do in your free time",
@@ -98,7 +105,7 @@
       ]
     },
     {
-      "tag": "swearwords",
+      "tag": "FB swearwords",
       "patterns": [
         "tang ina",
         "tangina",
@@ -116,7 +123,7 @@
       ]
     },
     {
-      "tag": "hotdog",
+      "tag": "GEN hotdog",
       "patterns": [
         "hotdog",
         "hot dog"
@@ -126,7 +133,7 @@
       ]
     },
     {
-      "tag": "who are you",
+      "tag": "GEN who are you",
       "patterns": [
         "who are you",
         "sino ka",
@@ -139,7 +146,7 @@
       ]
     },
     {
-      "tag": "capabilities",
+      "tag": "GEN capabilities",
       "patterns": [
         "what can you do",
         "what are you capable of doing"
@@ -150,7 +157,7 @@
       ]
     },
     {
-      "tag": "cafeteria",
+      "tag": "LOC cafeteria",
       "patterns": [
         "eat",
         "drink",
@@ -163,7 +170,7 @@
       ]
     },
     {
-      "tag": "registrar",
+      "tag": "LOC registrar",
       "patterns": [
         "enroll",
         "register"
@@ -173,7 +180,7 @@
       ]
     },
     {
-      "tag": "location_help",
+      "tag": "LOC location_help",
       "patterns": [
         "can you help me locate a room",
         "find room"
@@ -186,7 +193,7 @@
       ]
     },
     {
-      "tag": "lobby floor location",
+      "tag": "LOC lobby floor location",
       "patterns": [
         "cafeteria",
         "floor admissions office",
@@ -202,7 +209,7 @@
       ]
     },
     {
-      "tag": "second floor location",
+      "tag": "LOC second floor location",
       "patterns": [
         "floor room 201",
         "floor room 202",
@@ -225,7 +232,7 @@
       ]
     },
     {
-      "tag": "third floor location",
+      "tag": "LOC third floor location",
       "patterns": [
         "floor room 301",
         "floor room 302",
@@ -248,7 +255,7 @@
       ]
     },
     {
-      "tag": "fourth floor location",
+      "tag": "LOC fourth floor location",
       "patterns": [
         "floor room 401",
         "floor room 402",
@@ -269,7 +276,7 @@
       ]
     },
     {
-      "tag": "fifth floor location",
+      "tag": "LOC fifth floor location",
       "patterns": [
         "floor room 501",
         "itro",
@@ -300,7 +307,7 @@
       ]
     },
     {
-      "tag": "sixth floor location",
+      "tag": "LOC sixth floor location",
       "patterns": [
         "floor room 601",
         "floor room 602",
@@ -322,7 +329,7 @@
       ]
     },
     {
-      "tag": "seventh floor location",
+      "tag": "LOC seventh floor location",
       "patterns": [
         "discussion room",
         "meeting room",
@@ -339,7 +346,7 @@
       ]
     },
     {
-      "tag": "eighth floor location unfinished",
+      "tag": "LOC eighth floor location unfinished",
       "patterns": [
         "floor room 801",
         "digital electronics laboratory",
@@ -368,7 +375,7 @@
       ]
     },
     {
-      "tag": "ninth floor location",
+      "tag": "LOC ninth floor location",
       "patterns": [
         "floor room 901",
         "floor room 902",
@@ -387,7 +394,7 @@
       ]
     },
     {
-      "tag": "tenth floor location",
+      "tag": "LOC tenth floor location",
       "patterns": [
         "floor room 1004",
         "floor gym",
@@ -414,7 +421,7 @@
       ]
     },
     {
-      "tag": "eleventh floor location",
+      "tag": "LOC eleventh floor location",
       "patterns": [
         "floor room 1109",
         "floor court",
@@ -435,7 +442,7 @@
       ]
     },
     {
-      "tag": "twelfth floor location",
+      "tag": "LOC twelfth floor location",
       "patterns": [
         "auditorium"
       ],
@@ -444,7 +451,7 @@
       ]
     },
     {
-      "tag": "gym_keywords",
+      "tag": "LOC gym_keywords",
       "patterns": [
         "gym",
         "workout",
@@ -456,7 +463,7 @@
       ]
     },
     {
-      "tag": "programs offered",
+      "tag": "FB programs offered",
       "patterns": [
         "programs",
         "courses",
@@ -470,10 +477,11 @@
       "context_set": ""
     },
     {
-      "tag": "apc programs",
+      "tag": "PRG apc programs",
       "patterns": [
         "what programs does apc offer",
-        "other programs"
+        "other programs",
+        "what are the programs offered in apc"
       ],
       "responses": [
         "asia pacific college offers many programs under different schools, which school are you interested in?",
@@ -482,10 +490,10 @@
       "context_set": "apc_programs"
     },
     {
-      "tag": "shs",
+      "tag": "PRG shs",
       "patterns": [
-        "senior high school",
-        "shs",
+        "what is senior high school",
+        "tell me more about shs",
         "high school"
       ],
       "responses": [
@@ -495,7 +503,7 @@
       "context_set": ""
     },
     {
-      "tag": "soe",
+      "tag": "PRG soe",
       "patterns": [
         "engineering",
         "soe",
@@ -508,7 +516,7 @@
       "context_set": ""
     },
     {
-      "tag": "socit",
+      "tag": "PRG socit",
       "patterns": [
         "it",
         "socit",
@@ -521,7 +529,7 @@
       "context_set": ""
     },
     {
-      "tag": "soar",
+      "tag": "PRG soa",
       "patterns": [
         "architecture",
         "soar",
@@ -534,7 +542,7 @@
       "context_set": ""
     },
     {
-      "tag": "som",
+      "tag": "PRG som",
       "patterns": [
         "management",
         "som",
@@ -547,7 +555,7 @@
       "context_set": ""
     },
     {
-      "tag": "soma",
+      "tag": "PRG soma",
       "patterns": [
         "multimedia arts",
         "soma",
@@ -560,7 +568,7 @@
       "context_set": ""
     },
     {
-      "tag": "grad",
+      "tag": "PRG grad",
       "patterns": [
         "graduate school",
         "grad",
@@ -573,7 +581,7 @@
       "context_set": ""
     },
     {
-      "tag": "professional tracks",
+      "tag": "PRG professional tracks",
       "patterns": [
         "professional tracks",
         "professional",
@@ -585,19 +593,9 @@
       "context_filter": "apc_programs",
       "context_set": ""
     },
+
     {
-      "tag": "unknown",
-      "patterns": [
-        ""
-      ],
-      "responses": [
-        "sorry, i don\u0027t understand",
-        "i don\u0027t know what you mean",
-        "i don\u0027t understand"
-      ]
-    },
-    {
-      "tag": "sing",
+      "tag": "FN_sing",
       "patterns": [
         "sing a song"
       ],
@@ -609,19 +607,7 @@
       ]
     },
     {
-      "tag": "test_func",
-      "patterns": [
-        "command 1"
-      ],
-      "responses": [
-        " "
-      ],
-      "function": [
-        "test_func"
-      ]
-    },
-    {
-      "tag": "current_time",
+      "tag": "FN_current_time",
       "patterns": [
         "time is it now",
         "tell time",
@@ -636,7 +622,7 @@
       ]
     },
     {
-      "tag": "current_date",
+      "tag": "FN_current_date",
       "patterns": [
         "what day is it today",
         "date is it now",
@@ -653,7 +639,7 @@
       ]
     },
     {
-      "tag": "add_intents",
+      "tag": "FN_add_intents",
       "patterns": [
         "i want to add intents",
         "add intents",
@@ -668,7 +654,7 @@
       ]
     },
     {
-      "tag": "edit_intents",
+      "tag": "FN_edit_intents",
       "patterns": [
         "i want to edit intents",
         "edit intents"
@@ -681,7 +667,7 @@
       ]
     },
     {
-      "tag": "show_intents",
+      "tag": "FN_show_intents",
       "patterns": [
         "show intents",
         "let me see intents",
@@ -696,7 +682,7 @@
       ]
     },
     {
-      "tag": "update",
+      "tag": "FN_update",
       "patterns": [
         "train yourself",
         "retrain",
@@ -711,20 +697,19 @@
       ]
     },
     {
-      "tag": "unknown",
+      "tag": "tell me about apc",
       "patterns": [
-        ""
+        "can you tell me more about a pc", "can you tell me more about apc"
       ],
       "responses": [
-        "i am not yet trained to respond to that. ",
-        " i could not understand what you said",
-        " could you repeat it again"
+        "Sure, which part would you like to know more about?"
       ]
     },
+
     {
       "tag": "APC acronym",
       "patterns": [
-        "What does APC stand for?",
+        "What does a pc stand for?",
         "What is the meaning of APC?"
       ],
       "responses": [
@@ -732,7 +717,7 @@
       ]
     },
      {
-      "tag": "APC vision",
+      "tag": "APC Vision",
       "patterns": [
         "What is the vision of APC?",
         "tell me about the vision of APC",
@@ -744,21 +729,21 @@
       ]
     },
     {
-      "tag": "APC vision",
+      "tag": "APC Mission",
       "patterns": [
-        "What is the vision of APC?",
-        "tell me about the vision of APC",
-        "state APC vision statement",
-        "what is the vision statement of APC"
+        "What is the mission of APC?",
+        "tell me about the mission of APC",
+        "state APC mission statement",
+        "what is the mission statement of APC"
       ],
       "responses": [
-        "Asia Pacific College envisions itself to be the preferred Higher Education Institution bridging academe and industry with its programs founded on the concepts and applications of IT, guided by the core values of integrity, industry and innovation that works."
+        "Asia Pacific College, powered by education and industry professionals as faculty and a balanced curriculum, aims to provide business and the information and communications technology industry in the Philippines and in the global community lifelong learning graduates who are anchored on the principles of integrity and professionalism."
       ]
     },
     {
       "tag": "APC differences",
       "patterns": [
-        "What makes APC different from other schools?"
+        "What makes APC different from other schools?", "What makes APC unique?","What makes APC special?", "What is asia pacific college"
       ],
       "responses": [
         "APC is the school of choice for those seeking world-class education with a strong IT-based foundation, preparing graduates for various sectors of businesses and industries."
@@ -768,7 +753,8 @@
       "tag": "APC education",
       "patterns": [
         "What kind of education does APC offer?",
-        "What courses are available at APC?"
+        "What courses are available at APC?",
+        "What courses does Asia Pacific College offer?"
       ],
       "responses": [
         "APC offers education in information technology, commerce, engineering, accountancy, entrepreneurship, multimedia arts, and other areas of scholarship."
@@ -777,16 +763,20 @@
     {
       "tag": "APC specialization",
       "patterns": [
-        "What areas of scholarship does APC specialize in?"
+        "What areas does APC specialize in?",
+        "what does APC specialize in?",
+        "what does asia pacific college specialize in?"
       ],
       "responses": [
-        "APC specializes in information technology, commerce, engineering, accountancy, entrepreneurship, and multimedia arts."
+        "APC specializes in information technology, commerce, engineering, accountancy, entrepreneurship, and multimedia arts.",
+        "Asia Pacific College specializes in information technology, commerce, engineering, accountancy, entrepreneurship, and multimedia arts."
       ]
     },
     {
       "tag": "APC preparation",
       "patterns": [
-        "How does APC prepare its students for the global community in the 21st century?"
+        "How does APC prepare its students",
+        "how does asia pacific college treat its students"
       ],
       "responses": [
         "APC prepares its students for the global community by providing a strong foundation in IT, and education in areas that are relevant to the 21st century global economy."
@@ -795,7 +785,8 @@
     {
       "tag": "APC graduates employment",
       "patterns": [
-        "Where are APC graduates currently employed?"
+        "Where are APC graduates currently employed?",
+        "where do APC graduates work after graduation"
       ],
       "responses": [
         "APC graduates are employed in various sectors of businesses and industries."
@@ -820,10 +811,22 @@
       ]
     },
     {
+      "tag": " 4 year program duration",
+      "patterns": [
+        "how long"
+      ],
+      "responses": [
+        "The program is a four-year undergraduate degree program."
+      ]
+    },
+
+
+    {
       "tag": "BSCS",
       "patterns": [
-        "What is the Bachelor of Science in Computer Science?",
-        "Can you tell me about the BSCS program?"
+        "What is the Bachelor of Science in Computer Science",
+        "tell me more about the BSCS program",
+        "What is the BSCS program?"
       ],
       "responses": [
         "The Bachelor of Science in Computer Science (BSCS) is a four-year undergraduate degree program that focuses on theories, concepts, and computing solutions for business, society, and industry."
@@ -832,8 +835,9 @@
     {
       "tag": "BSCS Curriculum",
       "patterns": [
-        "What does the BSCS curriculum cover?",
-        "What is the objective of the BSCS program?"
+        "What does the BSCS curriculum cover",
+        "what are the topics taught in the computer science program",
+        "What is the objective of the BSCS program"
       ],
       "responses": [
         "The curriculum of the BSCS program highlights theories, concepts, algorithmic foundations, and implementation and application of information, computing and innovative solutions. Its objective is to provide students with a unique learning experience through the appropriate combination of theories, hands-on exercises, teamwork, and guided project work."
@@ -847,16 +851,6 @@
       ],
       "responses": [
         "The Bachelor of Science in Computer Science with specialization in Systems Software (BSCS-SS) is a four-year undergraduate degree program that aims to educate students in theories, concepts, and tools for systems software development."
-      ]
-    },
-    {
-      "tag": "BSCS-SS Curriculum",
-      "patterns": [
-        "What topics are covered under the BSCS-SS program?",
-        "What is the objective of the BSCS-SS program?"
-      ],
-      "responses": [
-        "The topics covered under the BSCS-SS program include programming, systems analysis and design, testing, software engineering, and systems management procedures. Its objective is to make students capable of developing information and knowledge infrastructure that will assist clients in managing, directing, controlling, and regulating total systems to maintain system integrity and integration."
       ]
     },
     {
@@ -893,12 +887,12 @@
       "tag": "about_BSCS",
       "patterns": [
         "What is Bachelor of Science in Computer Science?",
-        "Can you tell me more about BSCS?"
+        "tell me more about BSCS?"
       ],
       "responses": [
         "Bachelor of Science in Computer Science (BSCS) is a four-year undergraduate degree program that teaches theories, concepts, algorithmic foundations, and computing solutions."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "about_BSCS_SS",
@@ -908,8 +902,8 @@
       ],
       "responses": [
         "BSCS-SS is a four-year undergraduate degree program that specializes in systems software. It covers programming, systems analysis and design, testing and software engineering."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "about_BS_SF",
@@ -919,8 +913,8 @@
       ],
       "responses": [
         "BS-SF is a four-year undergraduate degree program that specializes in security and digital forensics. It covers topics on forensic sciences like Principles of Investigation, Legal Studies and Evidence Handling."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "career_opportunities",
@@ -930,8 +924,8 @@
       ],
       "responses": [
         "As a BSCS graduate, you can work in various industries such as software development, network administration, cybersecurity, and data analytics."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "requirements",
@@ -941,8 +935,8 @@
       ],
       "responses": [
         "The admission requirements for BSCS may vary per institution, but generally, you need to have a high school diploma or its equivalent and pass the entrance examination."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "duration",
@@ -952,8 +946,8 @@
       ],
       "responses": [
         "BSCS is a four-year undergraduate degree program."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "future_study",
@@ -963,8 +957,8 @@
       ],
       "responses": [
         "Yes, you can pursue a master\u0027s degree after completing BSCS. You can choose to pursue a master\u0027s degree in Computer Science or related fields such as Data Science, Cybersecurity, or Information Technology."
-      ],
-      "context_set": null
+      ]
+      
     },
     {
       "tag": "why_choose_BSCS",
@@ -974,8 +968,7 @@
       ],
       "responses": [
         "BSCS is a highly in-demand program that offers various career opportunities. It teaches students theories, concepts, and innovative computing solutions that cater to the needs of different industries."
-      ],
-      "context_set": null
+      ]
     },
     {
       "tag": "bsit_program",

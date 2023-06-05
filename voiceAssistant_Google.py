@@ -49,7 +49,7 @@ def get_wake_word():
         r.dynamic_energy_threshold = True
         #r.adjust_for_ambient_noise(source, duration=0.5)
         audio = r.listen(source)
-        text = r.recognize_whisper(audio)
+        text = r.recognize_google(audio)
         return text.lower()
 
 
@@ -99,7 +99,7 @@ def test_assistant():
                 print("listening now")
 
                 # transcribe audio input
-                text = r.recognize_whisper(audio_data=audio, model="base", language='english')
+                text = r.recognize_google(audio)
                 text = text.lower()
                 print("wakeword received text: " + text)  #
 
@@ -117,7 +117,7 @@ def test_assistant():
 
                     # listen for the command after wake word is detected
                     audio = r.listen(source, timeout=5)
-                    text = r.recognize_whisper(audio, language='english')
+                    text = r.recognize_google(audio, language='english')
                     text = text.lower()
                     print("Recieved command: " + text)
                     ws.cell(row=row, column=3, value=text)  # excel data input text
@@ -158,7 +158,7 @@ def test_assistant():
                         ts.speak("i currently don't know how to respond to that")
 
         except sr.RequestError:
-            print("Could not request results from whisper Speech Recognition service")
+            print("Could not request results from google Speech Recognition service")
         except sr.UnknownValueError:
             if wakeword_detected is True:
                 play(endSound) #sound to indicate that the wake word was not detected

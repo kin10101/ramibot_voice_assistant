@@ -60,12 +60,12 @@ def edit_intent():
 
 
 command_mappings = {
-    "test_func": test_func,
-    "sing": sing,
-    "current_time": get_time,
-    "current_date": get_date,
-    "add_intents": add_intents,
-    "update": train_bot,
-    "restart": restart,
-    "display_intents": display_intents
+    "FN_test_func": test_func,
+    "FN_sing": sing,
+    "FN_current_time": get_time,
+    "FN_current_date": get_date,
+    "FN_add_intents": add_intents,
+    "FN_update": train_bot,
+    "FN_restart": restart,
+    "FN_display_intents": display_intents
 }
