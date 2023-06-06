@@ -7,7 +7,7 @@ from openpyxl.styles import Font
 
 import chatbot
 import texttospeech as ts
-from playaudio import louder_sound, endSound
+from playaudio import wakeSound, endSound
 from playaudio import play
 
 WAKE_WORD = 'hello rami'
@@ -113,7 +113,7 @@ def test_assistant():
                     ws.cell(row=row, column=2, value=text)  # excel data wake word
 
                     print('now listening')
-                    play(louder_sound)
+                    play(wakeSound)
 
                     # listen for the command after wake word is detected
                     audio = r.listen(source, timeout=5)
@@ -152,7 +152,7 @@ def test_assistant():
 
                     row += 1  # increment the row number for the next data entry
                     wb.save('chatbotdata.xlsx')
-                    play(endSound) #sound to indicate that the conversation is over
+                    play(endSound) # sound to indicate that the conversation is over
 
                     if not chatbot.predict_class(text): # if the input is not in the intents list
                         ts.speak("i currently don't know how to respond to that")
@@ -161,7 +161,7 @@ def test_assistant():
             print("Could not request results from whisper Speech Recognition service")
         except sr.UnknownValueError:
             if wakeword_detected is True:
-                play(endSound) #sound to indicate that the wake word was not detected
+                play(endSound)  # sound to indicate that no audio was detected
 
             print("Unable to recognize speech")
         except sr.WaitTimeoutError:

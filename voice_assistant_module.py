@@ -4,7 +4,7 @@ import speech_recognition as sr
 
 import chatbot
 import texttospeech as ts
-from playaudio import louder_sound
+from playaudio import wakeSound, endSound
 from playaudio import play
 
 WAKE_WORD = 'hello rami'
@@ -63,6 +63,7 @@ def test_assistant():
                 print("listening now")
 
                 # transcribe audio input
+
                 text = r.recognize_google(audio)
                 text = text.lower()
                 print("wake-word received text: " + text)
@@ -70,7 +71,7 @@ def test_assistant():
                 # check wake word
                 if any(variation in text for variation in WAKE_WORD_VARIATIONS):
                     print('now listening')
-                    play(louder_sound)
+                    play(wakeSound)
 
                     # listen for the command after wake word is detected
                     audio = r.listen(source)
