@@ -122,9 +122,11 @@ def test_assistant():
                     print("Recieved command: " + text)
                     ws.cell(row=row, column=3, value=text)  # excel data input text
 
-                    context = []
+                    play(endSound)  # sound to indicate that the audio has been received
+                    context = [""]
                     # generate a response from the chatbot
                     response = handle_command(text, context)
+                    print("response",  response)
                     if response:
                         ts.speak(response)
                     ws.cell(row=row, column=4, value=response)  # excel data output text
@@ -152,10 +154,7 @@ def test_assistant():
 
                     row += 1  # increment the row number for the next data entry
                     wb.save('chatbotdata.xlsx')
-                    play(endSound) # sound to indicate that the conversation is over
 
-                    if not chatbot.predict_class(text): # if the input is not in the intents list
-                        ts.speak("i currently don't know how to respond to that")
 
         except sr.RequestError:
             print("Could not request results from whisper Speech Recognition service")

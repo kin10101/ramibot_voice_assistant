@@ -24,7 +24,7 @@ def train_bot():
     words = []
     classes = []
     documents = []
-    ignore_letters = ['!', '?', '.', ',']
+    ignore_punctuation = ['!', '?', '.', ',']
     stop_words = nltk.corpus.stopwords.words('english')
 
     for intent in intents["intents"]:
@@ -35,7 +35,7 @@ def train_bot():
             if intent['tag'] not in classes:
                 classes.append(intent['tag'])
 
-    words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
+    words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_punctuation and stop_words]
     words = sorted(set(words))
 
     classes = sorted(set(classes))
@@ -83,7 +83,8 @@ def train_bot():
 
 
 def plot_history(history):
-    """plot training accuracy"""
+    """visualize training and loss graph"""
+    # plot training accuracy
     plt.plot(history.history['accuracy'])
     plt.title('Model Accuracy')
     plt.ylabel('Accuracy')

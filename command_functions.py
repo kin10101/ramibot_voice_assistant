@@ -4,8 +4,7 @@ import texttospeech as tts
 import datetime
 from datetime import datetime
 import addintent
-import train
-
+import train_model
 
 def sing():
     print("singing")
@@ -39,8 +38,9 @@ def add_intents():
 def train_bot():
     running = bool
     # train the bot with the new intents
-    train.train_bot()
-    print("please restart for the changes to take effect")
+    tts.speak("Starting training phase. please wait for a while...")
+    train_model.train_bot()
+    tts.speak("please restart for the changes to take effect")
     return running is False
 
 
@@ -55,7 +55,7 @@ def display_intents():
 
 def edit_intent():
     intent_tag = input("Enter the tag of the intent you want to edit: ")
-    new_responses = input("Enter new responses for the intent (separated by commas): ").split(',')
+    new_responses = input("Enter new responses for the intent (separated by |): ").split('|')
     addintent.edit_intent("intents.json", intent_tag, new_responses)
 
 
@@ -69,3 +69,4 @@ command_mappings = {
     "FN_restart": restart,
     "FN_display_intents": display_intents
 }
+

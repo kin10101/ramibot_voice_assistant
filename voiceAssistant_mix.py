@@ -10,6 +10,7 @@ import texttospeech as ts
 from playaudio import wakeSound, endSound
 from playaudio import play
 
+from wifi_checker import is_wifi_connected
 WAKE_WORD = 'hello rami'
 WAKE_WORD_VARIATIONS = [
     "hello ram",
@@ -24,8 +25,7 @@ WAKE_WORD_VARIATIONS = [
     "hey ronnie",
     "jeremy",
     "hi rami",
-    "hi ronnie",
-    "hey siri"
+    "hi ronnie"
 
 ]
 
@@ -37,8 +37,8 @@ def handle_command(text, context): # has bugs
             if response is not None:
                 return response
     except:
-        #print("unknown word")
-        #ts.speak("i currently don't know how to respond to that")
+        print("unknown word")
+        # ts.speak("i currently don't know how to respond to that")
         pass
 
 
@@ -48,7 +48,7 @@ def get_wake_word():
         r.pause_threshold = 0.8
         r.energy_threshold = 10000
         r.dynamic_energy_threshold = True
-
+        #r.adjust_for_ambient_noise(source, duration=0.5)
         audio = r.listen(source)
         text = r.recognize_google(audio)
         return text.lower()
@@ -57,7 +57,6 @@ def get_wake_word():
 
 
 def test_assistant():
-    context = [""]
     # create a new workbook to store data in an Excel sheet
     wb = Workbook()
     ws = wb.active
@@ -81,7 +80,6 @@ def test_assistant():
     row = 2  # start writing data from row 2
 
     while True:
-        print(context)
         wakeword_detected = False
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         try:
@@ -93,16 +91,22 @@ def test_assistant():
                 start_time = time.monotonic()
                 r = sr.Recognizer()
                 r.pause_threshold = 0.8
-                r.energy_threshold = 9000
+                r.energy_threshold = 10000
                 r.operation_timeout = 5000
                 r.dynamic_energy_threshold = True
                 print("set")
 
-                audio = r.listen(source=source, timeout=5, phrase_time_limit=8)
+                audio = r.listen(source)
                 print("listening now")
 
                 # transcribe audio input
-                text = r.recognize_google(audio)
+                if is_wifi_connected():
+                    text = r.recognize_google(audio)
+                    print("detected using google")
+                else:
+                    text = r.recognize_whisper(audio)
+                    print("detected using whisper")
+
                 text = text.lower()
                 print("wakeword received text: " + text)  #
 
@@ -119,13 +123,16 @@ def test_assistant():
                     play(wakeSound)
 
                     # listen for the command after wake word is detected
-                    audio = r.listen(source=source, timeout=5, phrase_time_limit=8)
-                    text = r.recognize_google(audio, language='english')
+                    audio = r.listen(source, timeout=5)
+                    if is_wifi_connected():
+                        text = r.recognize_google(audio)
+                    else:
+                        text = r.recognize_whisper(audio)
                     text = text.lower()
                     print("Recieved command: " + text)
                     ws.cell(row=row, column=3, value=text)  # excel data input text
 
-
+                    context = [""]
                     # generate a response from the chatbot
                     response = handle_command(text, context)
                     if response:

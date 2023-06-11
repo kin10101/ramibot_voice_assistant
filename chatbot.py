@@ -25,8 +25,10 @@ intent_methods = command_functions.command_mappings
 
 def clean_up_sentence(sentence):
     """Tokenize and lemmatize the sentence."""
+    stop_words = nltk.corpus.stopwords.words('english')
+
     sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
+    sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words if word not in stop_words]
 
     # --------------------------------------------------------------------------
     print("clean up sentence output", sentence_words)
@@ -50,13 +52,15 @@ def predict_class(sentence):
     """Predict the intent of the sentence."""
     bow = bag_of_words(sentence)
     res = model.predict(np.array([bow]))[0]
-    ERROR_THRESHOLD = 0.5  # Acceptable limit adjust in testing
+    ERROR_THRESHOLD = 0.7  # Acceptable limit to output the response. Adjust if necessary
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)  # sort by strength of probability
     return_list = []
     for r in results:
-        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})  # remove strings
+        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
 
+    if not return_list:
+        return_list.append({'intent': 'FB Unknown', 'probability': '1'})
     # ---------------------------------------------------------------------------
     print("predict_class output", return_list)
     # --------------------------------------------------------------------------
@@ -69,11 +73,11 @@ def get_response(intents_list, intents_json, context):
     list_of_intents = intents_json['intents']
     result = None
     for i in list_of_intents:
-        print(i)
         if i['tag'] == tag:
 
             if 'context_filter' in i and i['context_filter'] not in context:
                 continue
+
             if 'context_set' in i:  # set context
                 context[0] = i['context_set']
 
@@ -96,6 +100,7 @@ def handle_request(message, context):
     """Determine whether the predicted intent corresponds to a custom command function
     or a standard response and return the appropriate output."""
     predicted_intents = predict_class(message)
+    print("PREDICTED INTENTS", predicted_intents)
     check_response = get_response(predicted_intents, intents, context)
 
     if not predicted_intents:
@@ -103,7 +108,7 @@ def handle_request(message, context):
 
     elif predicted_intents[0]['intent'] in intent_methods.keys():  # if predicted intent is mapped to a function
         intent_methods[predicted_intents[0]['intent']]()  # call the function
-        response = "command executed"
+        # response = "command executed"
 
     else:
         response = check_response
@@ -129,17 +134,15 @@ def test_chatbot():
 
         try:
             message = input("")  # get input
-            # predict = predict_class(message)
-            # response = get_response(predict, intents)  # get response from get_response()
+
             response = handle_request(message, context)  # get response from request()
 
             if response:
                 tts.speak(response)  # Text to speech function
-                print(response)  # output response in terminal
+                print(response)
 
             if response == "restart1":
                 break
-
 
         except Exception as e:
             response = e
