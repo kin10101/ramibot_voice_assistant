@@ -4,10 +4,9 @@
             "tag": "FB Unknown",
             "patterns": [],
             "responses": [
-                "no voice detected",
-                "sorry, I cant understand you",
-                "please repeat",
-                "please speak louder"
+                "sorry, I cant understand you, could you please repeat what you said?",
+                "please repeat, i could not understand you",
+                "i dont understand what you are saying"
             ]
         },
         {
@@ -39,7 +38,7 @@
             "responses": [
                 "Hello, my fantastic friend! How can I make your day shine even brighter?",
                 "Greetings! It's a delight to have you here. How can I be of service to you?",
-                "Hello there! I'm all ears and ready to assist. What brings you to my virtual doorstep today?"
+                "Hello there! I'm all ears and ready to assist."
             ]
         },
         {
@@ -50,7 +49,7 @@
                 " good morning"
             ],
             "responses": [
-               "Good morning! How can I assist you today?",
+                "Good morning! How can I assist you today?",
                 "Good morning! What can I do for you today?",
                 "Good morning! I'm ready to help. What can I do for you today?"
             ]
@@ -80,7 +79,7 @@
                 "how can you help me",
                 "what can you do",
                 "capabilities",
-                "capable of"
+                "capable"
             ],
             "responses": [
                 "I'm here to provide you with information about Asia Pacific College. How can I assist you specifically?",
@@ -104,7 +103,6 @@
             "patterns": [
                 "how are you",
                 "whats up"
-
             ],
             "responses": [
                 "Im fine, thank you for asking",
@@ -122,7 +120,7 @@
             "responses": [
                 "Ah, secrets, secrets! I'll keep my crushes under wraps for now. Let's focus on how I can assist you instead!",
                 "Hmm, my lips are sealed tight on that matter!",
-                "Well, there is someone who catches my attention—a charming temperature checker at the entrance. But, you know, I'm a bit hesitant to make a move. It's all in good fun, though!"
+                "Well, there is someone who catches my attention! a charming temperature checker at the entrance. But, you know, I'm a bit hesitant to make a move. It's all in good fun, though!"
             ]
         },
         {
@@ -191,7 +189,6 @@
                 "enroll",
                 "enrollment",
                 "registrar"
-
             ],
             "responses": [
                 "you can go to the registrar in the fourth floor"
@@ -295,7 +292,7 @@
                 "it is located at the 4th floor"
             ]
         },
- {
+        {
             "tag": "LOC fifth floor location",
             "patterns": [
                 "room 501",
@@ -750,10 +747,10 @@
         {
             "tag": "APC differences",
             "patterns": [
-                "What makes APC different from other schools?",
-                "What makes APC unique?",
-                "What makes APC special?",
-                "What is asia pacific college"
+                "APC different from other schools",
+                "APC unique",
+                "APC special",
+                "asia pacific college"
             ],
             "responses": [
                 "APC is the school of choice for those seeking world-class education with a strong IT-based foundation, preparing graduates for various sectors of businesses and industries."
@@ -872,7 +869,6 @@
                 "The topics covered under the BS-SF program include digital forensics investigation stages, principles of investigation, legal studies, evidence handling, operating systems, hardware network protocols, data structures, programming, and scripting languages. Its objective is to produce graduates who are skilled in digital forensics, industry standards, and computer networking and security."
             ]
         },
-
         {
             "tag": "about_BSCS",
             "patterns": [
@@ -1034,8 +1030,6 @@
                 "The Bachelor of Architecture (B. Arch) program in APC is a four-year and one-term, trimestral professional degree program that aims to graduate future-ready architects with the necessary skills and abilities to utilize technology to generate trailblazing architectural solutions to present and future built-environment challenges."
             ]
         },
-
-
         {
             "tag": "College admission requirements",
             "patterns": [
@@ -1083,7 +1077,7 @@
                 " who created ramibot"
             ],
             "responses": [
-                "I was created by a team consisting of Marjorie Co Don Perez MJ Abordo and Darren Derige from the School of Engineering Department. They collaborated to design and develop me combining their expertise in programming and artificial intelligence. Together they brought me to life as your robot assistant."
+                "I was created by a team consisting of Computer and Electronic Engineering students from the School of Engineering Department. They collaborated to design and develop me combining their expertise in programming and artificial intelligence. Together they brought me to life as your robot assistant."
             ]
         },
         {
@@ -1117,6 +1111,35 @@
             ],
             "responses": [
                 "Asia Pacific College's Address is 3 Humabon Place, Magallanes, Makati City 1232 PH"
+            ]
+        },
+        {
+            "tag": "end presentation DELETE",
+            "patterns": [
+                "presentation"
+            ],
+            "responses": [
+                "Thank you for listening to our presentation! any suggestions and recommendations are highly appreciated!"
+            ]
+        },
+        {
+            "tag": "chatbot process DELETE",
+            "patterns": [
+                "chatbot work",
+                "explain the process chatbot"
+            ],
+            "responses": [
+                "So, for the chatbot feature, text input from the user is preprocessed by means of tokenization which splits up raw text into individual words, and is then normalized using lemmatization which converts the word into its base form. The next step is the removal of stop words or words that provide little to no semantic value. This helps remove noise in the data and helps me to focus more on the meaningful words. Once the text has been preprocessed it is converted into a bag of words representation so that the pre-trained model can analyze and predict the probability of each vector and output the response with the highest probability. "
+            ]
+        },
+        {
+            "tag": "ECE what is ECE",
+            "patterns": [
+                "what is electronics engineering",
+                " what is ece"
+            ],
+            "responses": [
+                "The Bachelor of Science in Electronics Engineering (BS ECE) is a four-year trimestral degree program which aims to produce certified electronics engineers who can conceptualize, design, and implement innovative electronic, computer, and communication systems, devices, goods, services, and processes. "
             ]
         }
     ]

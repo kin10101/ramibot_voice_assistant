@@ -60,7 +60,6 @@ def edit_intent():
 
 
 command_mappings = {
-    "FN_test_func": test_func,
     "FN_sing": sing,
     "FN_current_time": get_time,
     "FN_current_date": get_date,

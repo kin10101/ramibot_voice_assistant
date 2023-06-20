@@ -1,5 +1,7 @@
+import json
 import sys
 import time
+import random
 
 import speech_recognition as sr
 from openpyxl import Workbook
@@ -30,15 +32,15 @@ WAKE_WORD_VARIATIONS = [
 ]
 
 
-def handle_command(text, context): # has bugs
+def handle_command(text, context):  # has bugs
     try:
         if text is not None:
             response = chatbot.handle_request(text, context)
             if response is not None:
                 return response
     except:
-        #print("unknown word")
-        #ts.speak("i currently don't know how to respond to that")
+        # print("unknown word")
+        # ts.speak("i currently don't know how to respond to that")
         pass
 
 
@@ -52,8 +54,6 @@ def get_wake_word():
         audio = r.listen(source)
         text = r.recognize_google(audio)
         return text.lower()
-
-
 
 
 def test_assistant():
@@ -116,6 +116,8 @@ def test_assistant():
                     ws.cell(row=row, column=2, value=text)  # excel data wake word
 
                     print('now listening')
+                    wake_word_response = get_response("GEN hello")
+                    ts.speak(wake_word_response)
                     play(wakeSound)
 
                     # listen for the command after wake word is detected
@@ -124,7 +126,6 @@ def test_assistant():
                     text = text.lower()
                     print("Recieved command: " + text)
                     ws.cell(row=row, column=3, value=text)  # excel data input text
-
 
                     # generate a response from the chatbot
                     response = handle_command(text, context)
@@ -165,7 +166,7 @@ def test_assistant():
             print("Could not request results from google Speech Recognition service")
         except sr.UnknownValueError:
             if wakeword_detected is True:
-                play(endSound) #sound to indicate that the wake word was not detected
+                play(endSound)  # sound to indicate that the wake word was not detected
 
             print("Unable to recognize speech")
         except sr.WaitTimeoutError:
@@ -175,5 +176,20 @@ def test_assistant():
             ts.engine.stop()
             sys.exit()
 
+
+def get_response(tag):
+    """Get wake word response."""
+    with open('intents.json') as file:
+        intents_json = json.load(file)
+
+    list_of_intents = intents_json['intents']
+    result = None
+
+    for intent in list_of_intents:
+        if intent['tag'] == tag:
+            result = random.choice(intent['responses'])
+            break
+
+    return result
 
 test_assistant()

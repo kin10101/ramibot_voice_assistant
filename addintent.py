@@ -9,7 +9,7 @@ def add_intent():
     # Get input for new intent
     tag = input("Enter tag for new intent: ")
     patterns = input("Enter patterns for new intent (separated by commas): ").split(',')
-    responses = input("Enter responses for new intent (separated by commas): ").split(',')
+    responses = input("Enter responses for new intent (separated by |): ").split('|')
 
     # Add new intent to intents file
     intents['intents'].append({
