@@ -9,6 +9,7 @@ from keras import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 from nltk.stem import WordNetLemmatizer
+from keras.utils import plot_model
 
 """uncomment for first install"""
 # nltk.download("punkt")
@@ -63,6 +64,7 @@ def train_bot():
     train_x = list(training[:, 0])
     train_y = list(training[:, 1])
 
+    # Define the model
     model = Sequential()
     model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
     model.add(Dropout(0.5))
@@ -73,14 +75,14 @@ def train_bot():
     sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-    hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+    hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=2)
     model.save('chatbot_model.h5', hist)
 
     print('done training')
 
     # call the plot_history function to plot accuracy and loss
     plot_history(hist)
-
+    visualize_model(model)
 
 def plot_history(history):
     """visualize training and loss graph"""
@@ -99,3 +101,7 @@ def plot_history(history):
     plt.xlabel('Epoch')
     plt.legend(['Train'], loc='upper left')
     plt.show()
+
+def visualize_model(model):
+    """visualize the model layers"""
+    plot_model(model, to_file='model_layers.png', show_shapes=False, show_layer_names=True)

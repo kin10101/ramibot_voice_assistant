@@ -36,9 +36,11 @@
                 "hello rami"
             ],
             "responses": [
-                "Hello, my fantastic friend! How can I make your day shine even brighter?",
-                "Greetings! It's a delight to have you here. How can I be of service to you?",
-                "Hello there! I'm all ears and ready to assist."
+                "Hello there! how can i be of service?",
+                "Greetings! How can I be of service?",
+                "Hello there! I'm all ears and ready to assist.",
+                "hi! how may i help you?",
+                "hello, what would you like me to do?"
             ]
         },
         {
@@ -212,7 +214,7 @@
             "tag": "LOC lobby floor location",
             "patterns": [
                 "cafeteria",
-                "floor admissions office",
+                "admission office",
                 "clinic",
                 "chapel",
                 "floor mph1",
