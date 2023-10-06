@@ -64,6 +64,23 @@ def train_bot():
     train_x = list(training[:, 0])
     train_y = list(training[:, 1])
 
+    # Split the dataset into training, validation, and test sets
+    split_ratio = 0.8
+    num_samples = len(training)
+    train_size = int(split_ratio * num_samples)
+    train_data = training[:train_size]
+    remaining_data = training[train_size:]
+    validation_size = len(remaining_data) // 2
+    validation_data = remaining_data[:validation_size]
+    test_data = remaining_data[validation_size:]
+
+    train_x = list(train_data[:, 0])
+    train_y = list(train_data[:, 1])
+    validation_x = list(validation_data[:, 0])
+    validation_y = list(validation_data[:, 1])
+    test_x = list(test_data[:, 0])
+    test_y = list(test_data[:, 1])
+
     # Define the model
     model = Sequential()
     model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
@@ -75,7 +92,14 @@ def train_bot():
     sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-    hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=2)
+    print(model.summary()) # print model summary
+
+    # Train the model with validation data
+    hist = model.fit(
+        np.array(train_x), np.array(train_y),
+        validation_data=(np.array(validation_x), np.array(validation_y)),
+        epochs=200, batch_size=5, verbose=2
+    )
     model.save('chatbot_model.h5', hist)
 
     print('done training')
@@ -84,24 +108,35 @@ def train_bot():
     plot_history(hist)
     visualize_model(model)
 
+    # Evaluate the model with test data
+    test_loss, test_accuracy = model.evaluate(np.array(test_x), np.array(test_y), verbose=0)
+    print(f'Test Loss: {test_loss}, Test Accuracy: {test_accuracy}')
+
+
 def plot_history(history):
-    """visualize training and loss graph"""
-    # plot training accuracy
+    """Visualize training and validation graphs"""
+    # Plot training accuracy and validation accuracy
     plt.plot(history.history['accuracy'])
+    plt.plot(history.history['val_accuracy'])
     plt.title('Model Accuracy')
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
-    plt.legend(['Train'], loc='upper left')
+    plt.legend(['Train', 'Validation'], loc='upper left')
     plt.show()
 
-    # plot training loss
+    # Plot training loss and validation loss
     plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
     plt.title('Model Loss')
     plt.ylabel('Loss')
     plt.xlabel('Epoch')
-    plt.legend(['Train'], loc='upper left')
+    plt.legend(['Train', 'Validation'], loc='upper left')
     plt.show()
 
+
 def visualize_model(model):
-    """visualize the model layers"""
+    """Visualize the model layers"""
     plot_model(model, to_file='model_layers.png', show_shapes=False, show_layer_names=True)
+
+
+

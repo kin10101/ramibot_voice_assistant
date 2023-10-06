@@ -116,7 +116,7 @@ def test_assistant():
                     ws.cell(row=row, column=2, value=text)  # excel data wake word
 
                     print('now listening')
-                    wake_word_response = get_response("GEN hello")
+                    wake_word_response = get_response("GEN hello")  # get responses from the greetings tag
                     ts.speak(wake_word_response)
                     play(wakeSound)
 

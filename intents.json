@@ -1,11 +1,11 @@
 {
     "intents": [
         {
-            "tag": "FB Unknown",
+            "tag": "Fallback unknown",
             "patterns": [],
             "responses": [
                 "sorry, I cant understand you, could you please repeat what you said?",
-                "please repeat, i could not understand you",
+                "could you please repeat what you said? i could not understand you",
                 "i dont understand what you are saying"
             ]
         },
@@ -89,10 +89,25 @@
             ]
         },
         {
+            "tag": "RAMI height",
+            "patterns": [
+                "how tall are you",
+                "how tall is rami",
+                "how tall are you rami",
+                "how tall is rami bot",
+                "how tall are you rami bot"
+            ],
+            "responses": [
+                "I'm 4.5 feet tall"
+            ]
+        },
+        {
             "tag": "GEN thanks",
             "patterns": [
                 "thanks",
-                "thank you"
+                "thank you",
+                "thank you rami",
+                "thank you rami bot"
             ],
             "responses": [
                 "You're welcome",
@@ -101,23 +116,12 @@
             ]
         },
         {
-            "tag": "GEN how are you",
-            "patterns": [
-                "how are you",
-                "whats up"
-            ],
-            "responses": [
-                "Im fine, thank you for asking",
-                "Im doing well, thank you for asking",
-                "Im doing great, thank you for asking"
-            ]
-        },
-        {
             "tag": "GEN gossip",
             "patterns": [
                 "do you have someone you like",
                 "are you interested in anyone",
                 "do you have a crush"
+
             ],
             "responses": [
                 "Ah, secrets, secrets! I'll keep my crushes under wraps for now. Let's focus on how I can assist you instead!",
@@ -298,6 +302,7 @@
             "tag": "LOC fifth floor location",
             "patterns": [
                 "room 501",
+                "itro",
                 "ITRO",
                 "i t r o",
                 "room 502",
@@ -312,6 +317,8 @@
                 "recording studio",
                 "music recording studio",
                 "video and photography studio",
+                "photoshoot room",
+                "photography room",
                 "apc center",
                 "APC center",
                 "documentation office",

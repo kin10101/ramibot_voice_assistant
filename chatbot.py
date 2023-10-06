@@ -82,7 +82,7 @@ def get_response(intents_list, intents_json, context):
                 context[0] = i['context_set']
 
             if 'function' in i:
-                print("FOUND FUNCTION! DO SOMETHING")
+                result = "running function..."
 
             if not i:
                 result = "sorry, I am not yet capable of responding to that"
@@ -90,7 +90,10 @@ def get_response(intents_list, intents_json, context):
 
             result = random.choice(i['responses'])  # Gets a random response from the given list
             break
-    # ---------------------------------------------------------------------------
+
+    if result is None:
+        result = "sorry, I am not yet capable of responding to that"
+    # --------------------------------------------------------------------------
     print("get response output", result)
     # --------------------------------------------------------------------------
     return result
@@ -116,6 +119,8 @@ def handle_request(message, context):
     # ---------------------------------------------------------------------------
     print("get request output", response)
     # --------------------------------------------------------------------------
+    if response is None:
+        response = "sorry, I am not yet capable of responding to that response"
     return response
 
 
