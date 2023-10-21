@@ -1,4 +1,5 @@
 from kivy.clock import Clock
+import os
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
@@ -8,6 +9,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.text import LabelBase
 from kivy.config import Config
 from chatbot import handle_request
+
+os.environ['MESA_LOADER_DRIVER_OVERRIDE'] = 'i965 ./kiwix-desktop'
 
 Window.size = (500, 600)
 Config.set('graphics', 'borderless', 1) # 0 being off 1 being on as in true/false

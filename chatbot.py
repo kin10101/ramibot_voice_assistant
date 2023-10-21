@@ -8,7 +8,6 @@ from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
 
 import command_functions
-import texttospeech as tts
 
 # Load data
 lemmatizer = WordNetLemmatizer()
@@ -139,17 +138,14 @@ def test_chatbot():
 
         try:
             message = input("")  # get input
+            if message == "stop":
+                print('input received')
 
             response = handle_request(message, context)  # get response from request()
 
-            if response:
-                tts.speak(response)  # Text to speech function
+            if response:  # if response is not empty
                 print(response)
-
-            if response == "restart1":
-                break
 
         except Exception as e:
             response = e
             pass
-    print("out of loop")
